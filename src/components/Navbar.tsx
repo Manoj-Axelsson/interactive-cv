@@ -74,9 +74,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       <style>{`
         .navbar-header {
+          position: sticky;
+          top: 0;
+          z-index: 100;
           border-bottom: 1px solid var(--border-color);
-          padding: 1.5rem 0;
+          padding: 1.2rem 0;
           margin-bottom: 2rem;
+          background-color: rgba(18, 19, 22, 0.85);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          transition: background-color 0.4s ease, padding 0.3s ease;
+        }
+
+        :root.light .navbar-header {
+          background-color: rgba(251, 250, 247, 0.85);
         }
 
         .nav-container {

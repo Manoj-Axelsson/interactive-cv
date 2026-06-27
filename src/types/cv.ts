@@ -3,6 +3,7 @@ export interface WorkExperienceItem {
   company: string;
   period: string;
   points: string[];
+  documentUrl?: string;
 }
 
 export interface EducationItem {

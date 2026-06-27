@@ -63,7 +63,8 @@ export const Timeline: React.FC<TimelineProps> = ({
       subtitle: job.company,
       period: job.period,
       year: parseInt(job.period.split('–')[0].trim()) || 2025, // for sorting if needed
-      content: job.points
+      content: job.points,
+      documentUrl: job.documentUrl
     })),
     // Leadership Experience
     {

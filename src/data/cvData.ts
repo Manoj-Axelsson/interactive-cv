@@ -29,7 +29,8 @@ export const cvData: { sv: CVData; en: CVData } = {
           "Arbetat aktivt med kvalitetssäkring, teknisk dokumentation och uppföljning enligt etablerade processer.",
           "Samverkat nära med operatörer, tekniker, produktion och ledning för att säkerställa högsta kvalitet och produktionseffektivitet.",
           "Van att arbeta strukturerat i krävande miljöer med höga krav på noggrannhet, personligt ansvar och professionellt samarbete."
-        ]
+        ],
+        documentUrl: "/Project_directive(mini).pdf"
       }
     ],
     leadershipTitle: "Ledarskaps- och Kunderfarenhet",
@@ -144,7 +145,8 @@ export const cvData: { sv: CVData; en: CVData } = {
           "Actively worked with quality assurance, technical documentation, and performance follow-up in accordance with established processes.",
           "Collaborated closely with operators, technicians, production planning, and management to ensure top quality and production efficiency.",
           "Accustomed to working in a structured manner in high-demand environments requiring precision, personal accountability, and professional teamwork."
-        ]
+        ],
+        documentUrl: "/Project_directive(mini).pdf"
       }
     ],
     leadershipTitle: "Leadership & Customer Experience",
