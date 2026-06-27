@@ -2,6 +2,7 @@ import React from 'react';
 import type { CVData } from '../types/cv';
 import SkillsGrid from '../components/SkillsGrid';
 import { Award, Code, Globe, FileDown } from 'lucide-react';
+import { track } from '@vercel/analytics';
 
 interface HomeProps {
   data: CVData;
@@ -57,6 +58,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
+            onClick={() => track('download_cv', { language: lang })}
           >
             <FileDown size={18} />
             {data.pdfDownloadText}

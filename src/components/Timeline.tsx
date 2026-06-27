@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Briefcase, GraduationCap, ChevronDown, ChevronUp, FileText, X, ExternalLink } from 'lucide-react';
 import type { WorkExperienceItem, EducationItem } from '../types/cv';
+import { track } from '@vercel/analytics';
 
 interface TimelineProps {
   workExperience: WorkExperienceItem[];
@@ -39,6 +40,7 @@ export const Timeline: React.FC<TimelineProps> = ({
 
   const openDocument = (url: string, title: string) => {
     setActiveDoc({ url, title });
+    track('view_document', { title, url });
   };
 
   const closeDocument = () => {

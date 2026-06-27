@@ -5,6 +5,10 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Web Analytics
+inject();
 
 function App() {
   const [tab, setTab] = useState<'about' | 'experience' | 'contact'>('about');
