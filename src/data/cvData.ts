@@ -73,7 +73,7 @@ export const cvData: { sv: CVData; en: CVData } = {
         title: "Grönt Certifikat för CNC-körning",
         provider: "Skärteknikcentrum Sverige",
         period: "2017",
-        details: "Nationell kompetensvalidering och licens för självständigt arbete inom CNC-skärande bearbetning.",
+        details: "Nationell yrkeslicens och kompetensvalidering för standardiserad CNC-bearbetning och industriell produktionsteknik:\nKvalitetssäkrad validering: rikstäckande kompetensprov underställt Skärteknikcentrum Sverige, i nära samarbete med svensk industri.\nKärnkompetens inom CNC: CNC-teknik & programmering, ritningsläsning, toleranser, skärteknik, mätteknik och maskindrift.\nDrift & säkerhetsstandarder: automation, produktionsövervakning, avvikelsehantering, underhåll samt hälsa, miljö och säkerhet (HMS).\nStödjande kunskaper: tillämpad produktionsmatematik, materiallära samt tvåspråkig yrkeskommunikation (svenska och engelska).",
         documentUrl: "/documents/cnc-gront-certifikat.pdf"
       },
       {
@@ -191,7 +191,7 @@ export const cvData: { sv: CVData; en: CVData } = {
         title: "Green Card Certification for CNC Operations",
         provider: "Skärteknikcentrum Sverige",
         period: "2017",
-        details: "National competency validation and license for independent operations in CNC machining.",
+        details: "National professional certification and competency validation for standardized CNC machining and industrial production operations:\nStandardized Validation: quality-assured competency assessment managed by Skärteknikcentrum Sverige, in close cooperation with the Swedish manufacturing industry.\nCore CNC Competencies: CNC technology & programming, machine operations, drawing reading, tolerances, metrology, and cutting technology.\nOperational & Safety Standards: automation, production monitoring, preventive maintenance, quality assurance, and health, safety & environment (HSE).\nSupporting Knowledge: applied manufacturing mathematics, materials science, technical documentation, and bilingual communication (Swedish/English).",
         documentUrl: "/documents/cnc-gront-certifikat.pdf"
       },
       {
