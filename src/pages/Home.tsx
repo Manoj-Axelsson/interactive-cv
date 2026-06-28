@@ -106,13 +106,27 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
         .hero-statement {
           position: relative;
           text-align: center;
-          margin-bottom: 3.5rem;
-          padding: 3.5rem 2rem;
+          margin-bottom: 2rem;
+          padding: 2rem 1rem;
           border: 1.5px solid var(--accent-gold);
           border-radius: 4px;
           overflow: hidden;
           background-color: var(--card-bg);
           box-shadow: 0 4px 20px var(--shadow-color);
+        }
+
+        @media (min-width: 600px) {
+          .hero-statement {
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .hero-statement {
+            padding: 3.5rem 2rem;
+            margin-bottom: 3.5rem;
+          }
         }
 
         .hero-statement::before {
@@ -128,27 +142,40 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           ), url('/background%20pic.jpg');
           background-size: cover;
           background-position: center;
-          opacity: 0.5; /* 50% opacity */
+          opacity: 0.5;
           z-index: 1;
         }
 
         .hero-statement-title {
           position: relative;
           z-index: 2;
-          font-size: 1.65rem;
+          font-size: 1.25rem;
           font-style: italic;
           font-weight: 500;
           color: var(--accent-gold);
-          margin-bottom: 1.2rem;
+          margin-bottom: 1rem;
           letter-spacing: 0.05em;
           line-height: 1.4;
           text-shadow: 0 1px 4px var(--shadow-color);
         }
 
+        @media (min-width: 600px) {
+          .hero-statement-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .hero-statement-title {
+            font-size: 1.65rem;
+          }
+        }
+
         .hero-statement-quote {
           position: relative;
           z-index: 2;
-          font-size: 1.35rem;
+          font-size: 1.1rem;
           line-height: 1.6;
           color: var(--text-primary);
           max-width: 800px;
@@ -157,30 +184,71 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           text-shadow: 0 1px 4px var(--shadow-color);
         }
 
+        @media (min-width: 600px) {
+          .hero-statement-quote {
+            font-size: 1.25rem;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .hero-statement-quote {
+            font-size: 1.35rem;
+          }
+        }
+
         .intro-card {
           position: relative;
         }
 
         .profile-description {
-          font-size: 1.25rem;
-          line-height: 1.75;
+          font-size: 1.1rem;
+          line-height: 1.7;
           margin-bottom: 1.2rem;
           color: var(--text-primary);
-          text-align: justify;
+          text-align: left;
+        }
+
+        @media (min-width: 600px) {
+          .profile-description {
+            font-size: 1.2rem;
+            line-height: 1.75;
+            text-align: justify;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .profile-description {
+            font-size: 1.25rem;
+          }
         }
 
         .profile-description:last-of-type {
-          margin-bottom: 2.5rem;
+          margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+          .profile-description:last-of-type {
+            margin-bottom: 2.5rem;
+          }
         }
 
         .quick-highlights {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 1.5rem;
-          margin-bottom: 2.5rem;
+          grid-template-columns: 1fr;
+          gap: 1.2rem;
+          margin-bottom: 2rem;
           border-top: 1px solid var(--border-color);
           border-bottom: 1px solid var(--border-color);
-          padding: 1.5rem 0;
+          padding: 1.2rem 0;
+        }
+
+        @media (min-width: 600px) {
+          .quick-highlights {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem 0;
+          }
         }
 
         .highlight-item {
@@ -200,26 +268,50 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
         }
 
         .highlight-text strong {
-          font-size: 1.15rem;
+          font-size: 1.05rem;
           color: var(--text-primary);
           font-weight: 600;
         }
 
+        @media (min-width: 600px) {
+          .highlight-text strong {
+            font-size: 1.15rem;
+          }
+        }
+
         .highlight-text span {
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           color: var(--text-secondary);
           font-style: italic;
         }
 
+        @media (min-width: 600px) {
+          .highlight-text span {
+            font-size: 0.95rem;
+          }
+        }
+
         .download-action {
           display: flex;
-          justify-content: flex-start;
+          justify-content: center;
+        }
+
+        @media (min-width: 600px) {
+          .download-action {
+            justify-content: flex-start;
+          }
         }
 
         .languages-container {
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
+          gap: 1.2rem;
+        }
+
+        @media (min-width: 600px) {
+          .languages-container {
+            gap: 1.5rem;
+          }
         }
 
         .language-bar-wrapper {
@@ -231,7 +323,13 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
         .language-info {
           display: flex;
           justify-content: space-between;
-          font-size: 1.1rem;
+          font-size: 1rem;
+        }
+
+        @media (min-width: 600px) {
+          .language-info {
+            font-size: 1.1rem;
+          }
         }
 
         .language-name {
@@ -255,16 +353,6 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           height: 100%;
           background-color: var(--accent-gold);
           border-radius: 2px;
-        }
-
-        @media (max-width: 600px) {
-          .quick-highlights {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-          }
-          .profile-description {
-            font-size: 1.15rem;
-          }
         }
       `}</style>
     </div>

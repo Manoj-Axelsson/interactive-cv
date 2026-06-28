@@ -54,6 +54,11 @@ export const Timeline: React.FC<TimelineProps> = ({
     }));
   };
 
+  const handleFilterChange = (newFilter: FilterType) => {
+    setFilter(newFilter);
+    track('filter_timeline', { category: newFilter });
+  };
+
   // Convert and sort all items chronologically (latest first)
   // We will assign an ID to each item to manage expansion state.
   const timelineItems: UnifiedTimelineItem[] = [
@@ -119,19 +124,19 @@ export const Timeline: React.FC<TimelineProps> = ({
       <div className="timeline-filters">
         <button
           className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
-          onClick={() => setFilter('all')}
+          onClick={() => handleFilterChange('all')}
         >
           {lang === 'sv' ? 'Visa Alla' : 'Show All'}
         </button>
         <button
           className={`filter-btn ${filter === 'work' ? 'active' : ''}`}
-          onClick={() => setFilter('work')}
+          onClick={() => handleFilterChange('work')}
         >
           {lang === 'sv' ? 'Yrkeserfarenhet' : 'Work Experience'}
         </button>
         <button
           className={`filter-btn ${filter === 'education' ? 'active' : ''}`}
-          onClick={() => setFilter('education')}
+          onClick={() => handleFilterChange('education')}
         >
           {lang === 'sv' ? 'Utbildning' : 'Education'}
         </button>
@@ -173,7 +178,7 @@ export const Timeline: React.FC<TimelineProps> = ({
                   <div className="timeline-card-body">
                     {item.content.map((point, pIndex) => (
                       <p key={pIndex} className="timeline-text-point">
-                        {item.content.length > 1 || (item.type === 'work' && item.id !== 'leadership') ? (
+                        {(item.content.length > 1 || (item.type === 'work' && item.id !== 'leadership')) && !(pIndex === 0 && point.trim().endsWith(':')) ? (
                           <span className="bullet-marker">•</span>
                         ) : null}
                         {point}
@@ -245,20 +250,35 @@ export const Timeline: React.FC<TimelineProps> = ({
         .timeline-filters {
           display: flex;
           justify-content: center;
-          gap: 1rem;
-          margin-bottom: 3rem;
+          gap: 0.5rem;
+          margin-bottom: 2rem;
+          flex-wrap: wrap;
+        }
+
+        @media (min-width: 600px) {
+          .timeline-filters {
+            gap: 1rem;
+            margin-bottom: 3rem;
+          }
         }
 
         .filter-btn {
           background-color: var(--card-bg);
           border: 1px solid var(--border-color);
           color: var(--text-secondary);
-          padding: 0.5rem 1.2rem;
-          font-size: 0.95rem;
+          padding: 0.4rem 0.8rem;
+          font-size: 0.85rem;
           text-transform: uppercase;
           letter-spacing: 0.08em;
           border-radius: 2px;
           transition: all 0.3s ease;
+        }
+
+        @media (min-width: 600px) {
+          .filter-btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.95rem;
+          }
         }
 
         .filter-btn:hover, .filter-btn.active {
@@ -269,26 +289,46 @@ export const Timeline: React.FC<TimelineProps> = ({
 
         .timeline-path {
           position: relative;
-          padding-left: 2.5rem;
+          padding-left: 1.5rem;
           border-left: 1px solid var(--border-color);
-          margin-left: 1rem;
+          margin-left: 0.2rem;
+        }
+
+        @media (min-width: 600px) {
+          .timeline-path {
+            padding-left: 2.5rem;
+            margin-left: 1rem;
+          }
         }
 
         .timeline-item {
           position: relative;
-          margin-bottom: 3rem;
+          margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 600px) {
+          .timeline-item {
+            margin-bottom: 3rem;
+          }
         }
 
         .timeline-marker {
           position: absolute;
-          left: calc(-2.5rem - 17px);
-          top: 6px;
+          left: calc(-1.5rem - 12.5px);
+          top: 10px;
           z-index: 2;
         }
 
+        @media (min-width: 600px) {
+          .timeline-marker {
+            left: calc(-2.5rem - 17px);
+            top: 6px;
+          }
+        }
+
         .marker-icon-wrapper {
-          width: 32px;
-          height: 32px;
+          width: 24px;
+          height: 24px;
           border-radius: 50%;
           background-color: var(--card-bg);
           border: 1px solid var(--border-color);
@@ -299,18 +339,26 @@ export const Timeline: React.FC<TimelineProps> = ({
           transition: all 0.3s ease;
         }
 
+        .marker-icon-wrapper svg {
+          width: 12px;
+          height: 12px;
+        }
+
+        @media (min-width: 600px) {
+          .marker-icon-wrapper {
+            width: 32px;
+            height: 32px;
+          }
+          .marker-icon-wrapper svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+
         .timeline-item:hover .marker-icon-wrapper {
           border-color: var(--accent-gold);
           color: var(--accent-gold);
           box-shadow: 0 0 10px rgba(197, 168, 128, 0.4);
-        }
-
-        .marker-icon-wrapper.work {
-          /* optional specific styles */
-        }
-
-        .marker-icon-wrapper.education {
-          /* optional specific styles */
         }
 
         .timeline-card {
@@ -327,11 +375,17 @@ export const Timeline: React.FC<TimelineProps> = ({
         }
 
         .timeline-card-header {
-          padding: 1.5rem;
+          padding: 1rem;
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
           cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+          .timeline-card-header {
+            padding: 1.5rem;
+          }
         }
 
         .title-section {
@@ -341,23 +395,41 @@ export const Timeline: React.FC<TimelineProps> = ({
         }
 
         .timeline-period {
-          font-size: 0.95rem;
+          font-size: 0.85rem;
           font-style: italic;
           color: var(--accent-gold);
           letter-spacing: 0.05em;
         }
 
+        @media (min-width: 768px) {
+          .timeline-period {
+            font-size: 0.95rem;
+          }
+        }
+
         .timeline-item-title {
-          font-size: 1.35rem;
+          font-size: 1.15rem;
           font-weight: 600;
-          line-height: 1.2;
+          line-height: 1.25;
+        }
+
+        @media (min-width: 768px) {
+          .timeline-item-title {
+            font-size: 1.35rem;
+          }
         }
 
         .timeline-item-subtitle {
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 400;
           color: var(--text-secondary);
           font-style: italic;
+        }
+
+        @media (min-width: 768px) {
+          .timeline-item-subtitle {
+            font-size: 1.1rem;
+          }
         }
 
         .expand-toggle-btn {
@@ -373,19 +445,32 @@ export const Timeline: React.FC<TimelineProps> = ({
         }
 
         .timeline-card-body {
-          padding: 0 1.5rem 1.5rem 1.5rem;
+          padding: 0 1rem 1rem 1rem;
           border-top: 1px dashed var(--border-color);
           margin-top: -0.2rem;
-          padding-top: 1.2rem;
+          padding-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+          .timeline-card-body {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            padding-top: 1.2rem;
+          }
         }
 
         .timeline-text-point {
-          font-size: 1.1rem;
+          font-size: 0.95rem;
           color: var(--text-secondary);
           margin-bottom: 0.6rem;
           display: flex;
           gap: 0.5rem;
           line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+          .timeline-text-point {
+            font-size: 1.1rem;
+          }
         }
 
         .timeline-text-point:last-child {
@@ -395,6 +480,7 @@ export const Timeline: React.FC<TimelineProps> = ({
         .bullet-marker {
           color: var(--accent-gold);
           font-weight: bold;
+          flex-shrink: 0;
         }
 
         .btn-document {
@@ -405,10 +491,16 @@ export const Timeline: React.FC<TimelineProps> = ({
           color: var(--accent-gold);
           border: 1px solid var(--accent-gold);
           padding: 0.4rem 0.9rem;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           border-radius: 2px;
           transition: all 0.3s ease;
           margin-top: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+          .btn-document {
+            font-size: 0.95rem;
+          }
         }
 
         .btn-document:hover {
@@ -433,8 +525,8 @@ export const Timeline: React.FC<TimelineProps> = ({
         }
 
         .modal-content {
-          width: 85%;
-          height: 85%;
+          width: 95%;
+          height: 90%;
           max-width: 1000px;
           background-color: var(--card-bg);
           border: 1.5px solid var(--accent-gold);
@@ -445,18 +537,37 @@ export const Timeline: React.FC<TimelineProps> = ({
           overflow: hidden;
         }
 
+        @media (min-width: 768px) {
+          .modal-content {
+            width: 85%;
+            height: 85%;
+          }
+        }
+
         .modal-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 1rem 1.5rem;
+          padding: 0.8rem 1rem;
           border-bottom: 1px solid var(--border-color);
         }
 
+        @media (min-width: 768px) {
+          .modal-header {
+            padding: 1rem 1.5rem;
+          }
+        }
+
         .modal-title {
-          font-size: 1.25rem;
+          font-size: 1.1rem;
           font-weight: 600;
           color: var(--text-primary);
+        }
+
+        @media (min-width: 768px) {
+          .modal-title {
+            font-size: 1.25rem;
+          }
         }
 
         .modal-actions {
@@ -490,28 +601,6 @@ export const Timeline: React.FC<TimelineProps> = ({
           border: none;
           width: 100%;
           height: 100%;
-        }
-
-        @media (max-width: 768px) {
-          .timeline-card-header {
-            padding: 1.2rem;
-          }
-          .timeline-card-body {
-            padding: 1.2rem;
-          }
-          .timeline-item-title {
-            font-size: 1.2rem;
-          }
-          .modal-content {
-            width: 95%;
-            height: 90%;
-          }
-          .modal-header {
-            padding: 0.8rem 1rem;
-          }
-          .modal-title {
-            font-size: 1.1rem;
-          }
         }
       `}</style>
     </div>

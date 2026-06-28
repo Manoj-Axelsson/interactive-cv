@@ -44,6 +44,8 @@ export interface CVData {
   contactEmail: string;
   contactPhone: string;
   contactLocation: string;
+  contactNationality: string;
+  contactNationalityValue: string;
   pdfDownloadText: string;
   tabs: {
     about: string;

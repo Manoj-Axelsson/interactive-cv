@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { cvData } from './data/cvData';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
-import { inject } from '@vercel/analytics';
+import { inject, track } from '@vercel/analytics';
 
 // Initialize Vercel Web Analytics
 inject();
@@ -27,6 +27,32 @@ function App() {
     } else {
       document.documentElement.classList.remove('light');
     }
+  }, [theme]);
+
+  // Track tab views
+  useEffect(() => {
+    track('view_tab', { tab });
+  }, [tab]);
+
+  // Track language changes (excluding initial render)
+  const isFirstLangRef = useRef(true);
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    if (isFirstLangRef.current) {
+      isFirstLangRef.current = false;
+      return;
+    }
+    track('change_language', { language: lang });
+  }, [lang]);
+
+  // Track theme changes (excluding initial render)
+  const isFirstThemeRef = useRef(true);
+  useEffect(() => {
+    if (isFirstThemeRef.current) {
+      isFirstThemeRef.current = false;
+      return;
+    }
+    track('change_theme', { theme });
   }, [theme]);
 
   const toggleTheme = () => {
@@ -74,7 +100,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <Footer referencesText={currentCV.references} />
+      <Footer />
 
       {/* Print Styles overrides */}
       <style>{`

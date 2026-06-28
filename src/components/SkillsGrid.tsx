@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Award, Code, Users } from 'lucide-react';
+import { track } from '@vercel/analytics';
 
 interface SkillsGridProps {
   lang: 'sv' | 'en';
@@ -16,6 +17,11 @@ interface SkillItem {
 
 export const SkillsGrid: React.FC<SkillsGridProps> = ({ lang }) => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'lean' | 'tech' | 'interpersonal'>('all');
+
+  const handleCategoryChange = (cat: 'all' | 'lean' | 'tech' | 'interpersonal') => {
+    setActiveCategory(cat);
+    track('filter_skills', { category: cat });
+  };
 
   // Map and categorize all skills
   const skills: SkillItem[] = [
@@ -142,7 +148,7 @@ export const SkillsGrid: React.FC<SkillsGridProps> = ({ lang }) => {
           <button
             key={cat.id}
             className={`cat-btn ${activeCategory === cat.id ? 'active' : ''}`}
-            onClick={() => setActiveCategory(cat.id)}
+            onClick={() => handleCategoryChange(cat.id)}
           >
             {cat.icon && <span className="cat-icon">{cat.icon}</span>}
             {lang === 'sv' ? cat.labelSV : cat.labelEN}
@@ -181,23 +187,41 @@ export const SkillsGrid: React.FC<SkillsGridProps> = ({ lang }) => {
 
         .skills-categories {
           display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 0.8rem;
-          margin-bottom: 2.5rem;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.6rem;
+          margin-bottom: 2rem;
+        }
+
+        @media (min-width: 600px) {
+          .skills-categories {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+          }
         }
 
         .cat-btn {
           background-color: var(--card-bg);
           border: 1px solid var(--border-color);
           color: var(--text-secondary);
-          padding: 0.5rem 1rem;
-          font-size: 0.95rem;
+          padding: 0.45rem 0.9rem;
+          font-size: 0.9rem;
           border-radius: 2px;
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 0.5rem;
           transition: all 0.3s ease;
+        }
+
+        @media (min-width: 600px) {
+          .cat-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.95rem;
+          }
         }
 
         .cat-btn:hover, .cat-btn.active {
@@ -213,14 +237,21 @@ export const SkillsGrid: React.FC<SkillsGridProps> = ({ lang }) => {
 
         .skills-items-container {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-          gap: 1.2rem;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+          .skills-items-container {
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.2rem;
+          }
         }
 
         .skill-card {
           background-color: var(--card-bg);
           border: 1px solid var(--border-color);
-          padding: 1.2rem 1.5rem;
+          padding: 1rem 1.25rem;
           border-radius: 4px;
           display: flex;
           justify-content: space-between;
@@ -229,6 +260,12 @@ export const SkillsGrid: React.FC<SkillsGridProps> = ({ lang }) => {
           overflow: hidden;
           transition: all 0.3s ease;
           box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        @media (min-width: 600px) {
+          .skill-card {
+            padding: 1.2rem 1.5rem;
+          }
         }
 
         .skill-card:hover {
@@ -253,18 +290,24 @@ export const SkillsGrid: React.FC<SkillsGridProps> = ({ lang }) => {
 
         /* Category Color Accents */
         .skill-card.lean:hover .skill-dot {
-          background-color: #8da3a6; /* Sage/slate */
+          background-color: #8da3a6;
         }
         .skill-card.tech:hover .skill-dot {
-          background-color: #a6988d; /* Muted bronze */
+          background-color: #a6988d;
         }
         .skill-card.interpersonal:hover .skill-dot {
           background-color: var(--accent-gold);
         }
 
         .skill-name {
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 500;
+        }
+
+        @media (min-width: 600px) {
+          .skill-name {
+            font-size: 1.1rem;
+          }
         }
 
         .core-skill {
@@ -276,19 +319,6 @@ export const SkillsGrid: React.FC<SkillsGridProps> = ({ lang }) => {
           color: var(--accent-gold);
           font-size: 0.9rem;
           margin-left: 0.5rem;
-        }
-
-        @media (max-width: 600px) {
-          .skills-items-container {
-            grid-template-columns: 1fr;
-          }
-          .skills-categories {
-            flex-direction: column;
-            align-items: stretch;
-          }
-          .cat-btn {
-            justify-content: center;
-          }
         }
       `}</style>
     </div>

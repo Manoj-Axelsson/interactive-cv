@@ -1,6 +1,7 @@
 import React from 'react';
 import type { CVData } from '../types/cv';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Flag } from 'lucide-react';
+import { track } from '@vercel/analytics';
 
 const LinkedInIcon = ({ size = 20 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin">
@@ -29,6 +30,10 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
 
   return (
     <div className="contact-page fade-in">
+      <p className="networks-references">
+        {data.references}
+      </p>
+
       <section className="card contact-card">
         <h2 className="section-title">{data.contactTitle}</h2>
         <p className="contact-intro">
@@ -40,7 +45,11 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
         {/* Contact Links Grid */}
         <div className="contact-grid">
           {/* Email */}
-          <a href={`mailto:${email}`} className="contact-item">
+          <a 
+            href={`mailto:${email}`} 
+            className="contact-item"
+            onClick={() => track('click_contact', { method: 'email', value: email })}
+          >
             <div className="contact-icon-box">
               <Mail size={22} />
             </div>
@@ -51,7 +60,11 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
           </a>
 
           {/* Phone */}
-          <a href={telLink} className="contact-item">
+          <a 
+            href={telLink} 
+            className="contact-item"
+            onClick={() => track('click_contact', { method: 'phone', value: rawPhone })}
+          >
             <div className="contact-icon-box">
               <Phone size={22} />
             </div>
@@ -71,6 +84,17 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
               <span className="contact-value">Linköping, Sverige</span>
             </div>
           </div>
+
+          {/* Nationality */}
+          <div className="contact-item no-link nationality-box">
+            <div className="contact-icon-box">
+              <Flag size={22} />
+            </div>
+            <div className="contact-details">
+              <span className="contact-label">{data.contactNationality}</span>
+              <span className="contact-value">{data.contactNationalityValue}</span>
+            </div>
+          </div>
         </div>
 
         {/* Professional Networks Section */}
@@ -86,6 +110,7 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
             target="_blank" 
             rel="noopener noreferrer" 
             className="network-btn linkedin"
+            onClick={() => track('click_contact', { method: 'linkedin' })}
           >
             <LinkedInIcon size={20} />
             <span>LinkedIn</span>
@@ -95,6 +120,7 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
             target="_blank" 
             rel="noopener noreferrer" 
             className="network-btn github"
+            onClick={() => track('click_contact', { method: 'github' })}
           >
             <GitHubIcon size={20} />
             <span>GitHub</span>
@@ -104,33 +130,60 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
 
       <style>{`
         .contact-card {
-          padding-bottom: 3.5rem;
+          padding-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+          .contact-card {
+            padding-bottom: 3.5rem;
+          }
         }
 
         .contact-intro {
-          font-size: 1.2rem;
+          font-size: 1.05rem;
           color: var(--text-secondary);
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
           line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+          .contact-intro {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+          }
         }
 
         .contact-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1.5rem;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+          .contact-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+          }
         }
 
         .contact-item {
           display: flex;
           align-items: center;
-          gap: 1.2rem;
-          padding: 1.5rem;
+          gap: 1rem;
+          padding: 1rem;
           background-color: var(--highlight-color);
           border: 1px solid var(--border-color);
           border-radius: 4px;
           text-decoration: none;
           color: inherit;
           transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+          .contact-item {
+            gap: 1.2rem;
+            padding: 1.5rem;
+          }
         }
 
         .contact-item:hover:not(.no-link) {
@@ -150,10 +203,27 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
           justify-content: center;
           background-color: var(--card-bg);
           border: 1px solid var(--border-color);
-          width: 50px;
-          height: 50px;
+          width: 42px;
+          height: 42px;
           border-radius: 4px;
           flex-shrink: 0;
+          transition: all 0.3s ease;
+        }
+
+        .contact-icon-box svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        @media (min-width: 768px) {
+          .contact-icon-box {
+            width: 50px;
+            height: 50px;
+          }
+          .contact-icon-box svg {
+            width: 22px;
+            height: 22px;
+          }
         }
 
         .contact-item:hover .contact-icon-box {
@@ -164,55 +234,112 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
         .contact-details {
           display: flex;
           flex-direction: column;
-          gap: 0.2rem;
+          gap: 0.1rem;
         }
 
         .contact-label {
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           text-transform: uppercase;
           letter-spacing: 0.05em;
           color: var(--text-secondary);
         }
 
+        @media (min-width: 768px) {
+          .contact-label {
+            font-size: 0.9rem;
+          }
+        }
+
         .contact-value {
-          font-size: 1.15rem;
+          font-size: 1rem;
           font-weight: 500;
           word-break: break-all;
+        }
+
+        @media (min-width: 768px) {
+          .contact-value {
+            font-size: 1.15rem;
+          }
         }
 
         .networks-divider {
           height: 1px;
           background-color: var(--border-color);
-          margin: 3.5rem 0 2.5rem 0;
+          margin: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+          .networks-divider {
+            margin: 3.5rem 0 2.5rem 0;
+          }
         }
 
         .networks-title {
-          font-size: 1.4rem;
+          font-size: 1.2rem;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.2rem; /* Increased to push references line down */
           text-align: center;
           color: var(--text-primary);
         }
 
+        @media (min-width: 768px) {
+          .networks-title {
+            font-size: 1.4rem;
+            margin-bottom: 1.6rem;
+          }
+        }
+
+        .networks-references {
+          font-size: 0.95rem;
+          letter-spacing: normal;
+          margin-bottom: 2rem;
+          text-align: center;
+          color: var(--text-primary);
+          font-style: normal;
+          font-weight: bold;
+        }
+
+        @media (min-width: 768px) {
+          .networks-references {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+          }
+        }
+
         .networks-links {
           display: flex;
-          justify-content: center;
-          gap: 1.5rem;
-          flex-wrap: wrap;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+          .networks-links {
+            flex-direction: row;
+            justify-content: center;
+            gap: 1.5rem;
+          }
         }
 
         .network-btn {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 0.6rem;
           border: 1px solid var(--border-color);
           background-color: var(--card-bg);
           color: var(--text-primary);
-          padding: 0.7rem 1.8rem;
+          padding: 0.6rem 1.4rem;
           border-radius: 4px;
-          font-size: 1.05rem;
+          font-size: 0.95rem;
           transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+          .network-btn {
+            padding: 0.7rem 1.8rem;
+            font-size: 1.05rem;
+          }
         }
 
         .network-btn:hover {
@@ -223,17 +350,30 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
           box-shadow: 0 4px 12px var(--shadow-color);
         }
 
-        @media (max-width: 600px) {
-          .contact-grid {
-            grid-template-columns: 1fr;
-          }
-          .networks-links {
-            flex-direction: column;
-            align-items: stretch;
-          }
-          .network-btn {
-            justify-content: center;
-          }
+        .contact-item.nationality-box {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .contact-item.nationality-box::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('/Flag_of_Sweden.gif');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.40; /* 40% opacity */
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        .contact-item.nationality-box .contact-icon-box,
+        .contact-item.nationality-box .contact-details {
+          position: relative;
+          z-index: 1;
         }
       `}</style>
     </div>

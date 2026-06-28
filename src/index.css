@@ -84,12 +84,24 @@ button {
   flex-direction: column;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem; /* Mobile-first: 1rem side padding */
+}
+
+@media (min-width: 600px) {
+  .app-container {
+    padding: 0 1.5rem;
+  }
 }
 
 main.content-area {
   flex: 1;
-  padding: 3rem 0;
+  padding: 1.5rem 0; /* Mobile-first: reduced content padding */
+}
+
+@media (min-width: 768px) {
+  main.content-area {
+    padding: 3rem 0;
+  }
 }
 
 /* Base Components & Classes */
@@ -97,41 +109,94 @@ main.content-area {
   background-color: var(--card-bg);
   border: 1.5px solid var(--accent-gold);
   border-radius: 4px;
-  padding: 2.5rem;
+  padding: 1.25rem; /* Mobile-first: smaller card padding */
   box-shadow: 0 6px 24px var(--shadow-color);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   position: relative;
+}
+
+@media (min-width: 600px) {
+  .card {
+    padding: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+  }
 }
 
 /* Header Styles */
 .profile-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem; /* Mobile-first: smaller margin */
+}
+
+@media (min-width: 768px) {
+  .profile-header {
+    margin-bottom: 4rem;
+  }
 }
 
 .profile-title {
-  font-size: 2.4rem;
+  font-size: 1.6rem; /* Mobile-first: smaller font */
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 0.4rem;
   color: var(--text-primary);
+  line-height: 1.2;
+}
+
+@media (min-width: 480px) {
+  .profile-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-title {
+    font-size: 2.4rem;
+  }
 }
 
 .profile-tagline {
-  font-size: 1.25rem;
+  font-size: 1rem; /* Mobile-first */
   font-style: italic;
   font-weight: 400;
   color: var(--accent-gold);
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .profile-tagline {
+    font-size: 1.25rem;
+  }
 }
 
 .profile-meta {
-  font-size: 1.15rem;
+  font-size: 0.9rem; /* Mobile-first */
   color: var(--text-secondary);
   letter-spacing: 0.05em;
   margin-top: 0.6rem;
+  line-height: 1.6;
+  word-break: break-word; /* Prevent long email/phone overflow */
+}
+
+@media (min-width: 480px) {
+  .profile-meta {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-meta {
+    font-size: 1.15rem;
+  }
 }
 
 .profile-meta a {
@@ -146,13 +211,20 @@ main.content-area {
 
 /* Section Titles */
 .section-title {
-  font-size: 1.8rem;
+  font-size: 1.35rem; /* Mobile-first */
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .section-title::after {
@@ -168,15 +240,24 @@ main.content-area {
 /* Animations and Interactive Badges */
 .badge {
   display: inline-block;
-  font-size: 0.95rem;
-  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem; /* Mobile-first */
+  padding: 0.3rem 0.6rem;
   border: 1px solid var(--border-color);
   background-color: var(--highlight-color);
   color: var(--text-primary);
   border-radius: 2px;
-  margin-right: 0.6rem;
-  margin-bottom: 0.6rem;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media (min-width: 768px) {
+  .badge {
+    font-size: 0.95rem;
+    padding: 0.35rem 0.8rem;
+    margin-right: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
 }
 
 .badge:hover {
@@ -200,12 +281,19 @@ main.content-area {
   background: transparent;
   color: var(--accent-gold);
   border: 1px solid var(--accent-gold);
-  padding: 0.6rem 1.4rem;
-  font-size: 1rem;
+  padding: 0.5rem 1.1rem; /* Mobile-first */
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   transition: all 0.3s ease;
   border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .btn-primary {
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+  }
 }
 
 .btn-primary:hover {
@@ -231,22 +319,3 @@ main.content-area {
   }
 }
 
-/* Responsive details */
-@media (max-width: 768px) {
-  .profile-title {
-    font-size: 1.8rem;
-  }
-  .profile-tagline {
-    font-size: 1.05rem;
-  }
-  .profile-meta {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  .card {
-    padding: 1.5rem;
-  }
-  main.content-area {
-    padding: 1.5rem 0;
-  }
-}

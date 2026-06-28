@@ -78,12 +78,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           top: 0;
           z-index: 100;
           border-bottom: 1px solid var(--border-color);
-          padding: 1.2rem 0;
-          margin-bottom: 2rem;
+          padding: 0.8rem 0;
+          margin-bottom: 1.5rem;
           background-color: rgba(18, 19, 22, 0.85);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
           transition: background-color 0.4s ease, padding 0.3s ease;
+        }
+
+        @media (min-width: 600px) {
+          .navbar-header {
+            padding: 1.2rem 0;
+            margin-bottom: 2rem;
+          }
         }
 
         :root.light .navbar-header {
@@ -92,26 +99,50 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         .nav-container {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
           align-items: center;
+          gap: 0.8rem;
           width: 100%;
+        }
+
+        @media (min-width: 600px) {
+          .nav-container {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 0;
+          }
         }
 
         .nav-links {
           display: flex;
-          gap: 2rem;
+          gap: 1.2rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        @media (min-width: 600px) {
+          .nav-links {
+            gap: 2rem;
+            justify-content: flex-start;
+          }
         }
 
         .nav-tab {
           background: none;
           border: none;
           color: var(--text-secondary);
-          font-size: 1.05rem;
+          font-size: 0.95rem;
           text-transform: uppercase;
           letter-spacing: 0.1em;
           padding: 0.3rem 0;
           border-bottom: 1.5px solid transparent;
           transition: all 0.3s ease;
+        }
+
+        @media (min-width: 600px) {
+          .nav-tab {
+            font-size: 1.05rem;
+          }
         }
 
         .nav-tab:hover {
@@ -151,16 +182,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           font-size: 0.85rem;
           font-weight: bold;
           letter-spacing: 0.05em;
-        }
-
-        @media (max-width: 600px) {
-          .nav-container {
-            flex-direction: column;
-            gap: 1rem;
-          }
-          .nav-links {
-            gap: 1.2rem;
-          }
         }
       `}</style>
     </header>

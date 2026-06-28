@@ -9,14 +9,14 @@ export const cvData: { sv: CVData; en: CVData } = {
     profile: "Driven, analytisk och strategisk yrkesverksam med gedigen kompetens inom både systemutveckling och produktionsteknik, samt dokumenterad erfarenhet av Lean och Six Sigma-metodik. Under hela mitt yrkesliv har jag fokuserat på att samla in, analysera och omsätta komplex information till praktiska förbättringar och strategiska beslut. Jag trivs i mötet med människor, arbetar strukturerat och skapar förtroende genom ett professionellt och lyhört bemötande. Genom min kombinerade bakgrund inom modern systemutveckling, tillverkande industri, verksamhetsutveckling och eget företagande har jag utvecklat en stark förmåga att se helhetslösningar och förstå hur tillförlitlig data skapar reellt värde för organisationer.\n\nI mitt arbete kombinerar jag ett genuint engagemang för mina uppgifter med ett lyhört och tålmodigt förhållningssätt. Jag värdesätter god kommunikation på både svenska och engelska, och strävar alltid efter att lyssna och observera noggrant innan jag fattar beslut. Som person är jag punktlig, lojal och mån om att skapa struktur, vilket bland annat visar sig i mitt intresse för noggrann dokumentation. Jag motiveras av att driva och genomföra förbättringar, samtidigt som jag har en empatisk förståelse för verksamhetens och människors förutsättningar. När analysen kräver det har jag förmågan att fatta svåra men nödvändiga beslut på ett sakligt och tryggt sätt, vilket gör mig till en pålitlig samarbetspartner i krävande förändringsarbeten.",
     coreCompetenciesTitle: "Kärnkompetenser",
     coreCompetencies: [
-      "Kommunikation och professionellt bemötande",
-      "Datainsamling och informationskvalitet",
-      "Analys och problemlösning",
-      "Lean Six Sigma Green Belt",
-      "Strukturerat och noggrant arbetssätt",
-      "Självständigt arbete",
-      "Samarbete i team",
-      "Förbättringsarbete och processutveckling"
+      "Fullstack-systemutveckling (React, Node.js, TypeScript)",
+      "Datadrivet processförbättring & Lean Six Sigma (DMAIC)",
+      "Statistisk dataanalys & affärsanalys (Excel, Minitab)",
+      "Processkartläggning & digitalisering (Industri 4.0)",
+      "Strategisk gästservice, CRM & kundrelationer",
+      "Operativt ledarskap & Change Management",
+      "Kvalitetssäkring, standardisering & rotorsaksanalys",
+      "Systemarkitektur & modern versionshantering (Git)"
     ],
     experienceTitle: "Yrkeserfarenhet",
     workExperience: [
@@ -56,17 +56,17 @@ export const cvData: { sv: CVData; en: CVData } = {
         documentUrl: "/documents/lexicon-systemutveckling.pdf"
       },
       {
-        title: "Lean Six Sigma Green Belt",
+        title: "Lean Six Sigma Green Belt Certification",
         provider: "KPMG",
         period: "2024",
-        details: "Certifiering inom processförbättring, statistisk analys och systematiskt kvalitetsarbete.",
+        details: "Professionellt certifieringsprogram med fokus på datadrivet förbättringsarbete, rotorsaksanalys och statistisk kvalitetssäkring:\nDMAIC-projektlivscykel: driva avgränsade förbättringsprojekt under 6–12 veckor för att leverera mätbara kostnadsbesparingar (COPQ) och effektivitetsvinster.\nStatistisk analys (Analyze): hypotestester (t-test, chi-två), enkel regression samt rotorsaksanalys (Pareto, fiskbensdiagram, 5 Varför).\nProcessförbättring & styrning (Improve/Control): Kaizen-aktiviteter, 5S, standardiserat arbetssätt, felsäkring (poka-yoke) samt upprättande av styrplaner/SPC-diagram.\nLeverabler & mätetal: projektdirektiv med ROI-beräkningar, rotorsaksrapporter, pilotresultat samt uppföljning av mätetal (% minskning av cykeltid, fel eller defekter).\nData & branschtillämpning: mätsystemanalys (MSA) och datavisualisering i Excel/Minitab, tillämpbart inom industri, IT/DevOps och tjänstesektorn.",
         documentUrl: "/documents/kpmg-six-sigma.pdf"
       },
       {
         title: "Produktionsutvecklare Industri 4.0",
         provider: "Yrkeshögskoleutbildning (Examensbevis)",
         period: "2022 – 2023",
-        details: "Fokus på digitalisering inom industrin, smart tillverkning, automatisering och optimering av produktionsflöden.",
+        details: "Yrkeshögskoleexamen inom:\nLean production\nDigitaliserad produktion\nIndustriell automation\nProduktionsplanering\nDatadrivet förbättringsarbete\nSmarta fabriker\nKvalitetsstyrning\nStändiga förbättringar",
         documentUrl: "/documents/industri 4-0.pdf"
       },
       {
@@ -79,22 +79,22 @@ export const cvData: { sv: CVData; en: CVData } = {
       {
         title: "CNC-tekniker med CAD/CAM",
         provider: "Yrkesutbildning",
-        period: "2016 – 2017",
-        details: "Utbildning med fokus på CNC-programmering, ritningsläsning, CAD/CAM-system, mätteknik och materiallära.",
+        period: "2017 – 2018",
+        details: "Kvalificerad yrkeshögskoleutbildning med inriktning mot avancerad tillverkning, CAD/CAM-programmering och produktionsteknik:\nAvancerad CAD & CAM: 3D-konstruktion och beredning för datorstödd tillverkning (Advanced CAD/CAM).\nAvancerad CNC-programmering: programmering, riggning och drift av komplexa CNC-maskiner för precisionsdetaljer.\nProduktion & kvalitetssystem: praktisk tillämpning av produktionsekonomi, kvalitetssäkring och ständiga förbättringar.\nYrkesroller & kompetens: kvalificerad för självständigt arbete som CNC-tekniker, CAM-beredare, produktionsplanerare eller produktionstekniker.\nLIA (Lärande i arbete): praktisk erfarenhet och projektarbete utfört direkt i skarp industriell produktionsmiljö.",
         documentUrl: "/documents/cnc-tekniker.pdf"
       },
       {
-        title: "Diploma in Hotel Management & Catering Technology",
-        provider: "Mumbai",
+        title: "Diploma in Hotel Management, Catering Technology & Applied Nutrition [IHMCTAN]",
+        provider: "IHM, Dadar - Mumbai",
         period: "1993 – 1996",
-        details: "Ledarskap, administration och kundrelationer inom besöksnäringen.",
+        details: "Treårigt diplomprogram med fokus på verksamhetsledande roller, strategisk kundservice och mellanmänsklig kommunikation enligt standarder för exklusiva turistmarknader och hotellverksamheter:\nStrategisk gästservice (Guest Relations): aktivt lyssnande, konfliktlösning, kulturell förståelse och att förutse/möta gästers individuella behov.\nKommunikation och samarbete: samordning av team, utbildning av personal, professionell leverantörskontakt och avdelningsöverskridande samarbete.\nAnalytisk drift och kvalitetssäkring: kostnadsanalys, lagerstyrning, datadrivna servicemodifieringar och upprätthållande av hög kvalitetsstandard.\nChange Management och ledarskap: anpassning av servicemodeller efter marknadsförändringar, personalledning av mångkulturella team och operativ problemlösning.\nF&B-standarder & produktion: livsmedelshygien (HACCP), köksadministration och standardiserade serveringsprocedurer.",
         documentUrl: "/documents/hotel-management.pdf"
       },
       {
         title: "Bachelor of Arts (Ekonomi)",
         provider: "Kerala University",
         period: "1987 – 1992",
-        details: "Akademisk grundutbildning inom ekonomisk teori, analys och samhällsekonomi.",
+        details: "Akademisk utbildning inom ekonomi, validerad av UHR motsvarande svensk högskoleexamen, inriktad på mikroekonomisk teori (marknadsmekanismer, prissättning) och makroekonomisk teori (ekonomisk tillväxt, finanspolitik) för att utveckla kärnkompetenser:\nInformationsanalys & källkritik: insamling, utvärdering och kritisk tolkning av komplex ekonomisk data och samhällsinformation.\nStrukturerad problemlösning: självständigt identifiera, formulera och lösa ekonomiska frågeställningar inom givna tidsramar.\nFaktabaserad kommunikation: presentera och diskutera ekonomiska teorier, trender och analytiska lösningar i tal och skrift.\nKritiskt och etiskt förhållningssätt: göra bedömningar underbyggda av vetenskapliga, samhälleliga och etiska aspekter.",
         documentUrl: "/documents/kerala-university.pdf"
       }
     ],
@@ -110,6 +110,8 @@ export const cvData: { sv: CVData; en: CVData } = {
     contactEmail: "E-post",
     contactPhone: "Telefon",
     contactLocation: "Ort",
+    contactNationality: "Medborgarskap",
+    contactNationalityValue: "Svensk (Svensk medborgare)",
     pdfDownloadText: "Hämta CV som PDF",
     tabs: {
       about: "Om Mig",
@@ -125,14 +127,14 @@ export const cvData: { sv: CVData; en: CVData } = {
     profile: "Driven, analytical, and strategic professional with solid expertise in both software development and production engineering, along with documented competency in Lean and Six Sigma methodologies. Throughout my career, my focus has been on collecting, analyzing, and transforming complex data into actionable improvements and strategic decisions. I thrive in interpersonal environments, work in a structured manner, and build trust through a professional and responsive approach. With my combined background in modern software engineering, manufacturing, business development, and entrepreneurship, I have developed a strong ability to see holistic solutions and understand how reliable data generates real value for organizations.\n\nIn my work, I combine a genuine dedication to my responsibilities with an attentive and patient approach. I value clear communication in both Swedish and English, and always strive to listen and observe carefully before making decisions. As a person, I am punctual, loyal, and committed to maintaining order, which is reflected in my focus on thorough documentation. I am motivated by driving and implementing improvements, while maintaining an empathetic understanding of the realities faced by teams and organizations. When analysis demands it, I have the capacity to make difficult but necessary decisions in an objective and assured manner, making me a reliable partner to trust and reason with in challenging environments.",
     coreCompetenciesTitle: "Core Competencies",
     coreCompetencies: [
-      "Communication & Relationship Building",
-      "Data Collection & Information Quality",
-      "Analysis & Problem Solving",
-      "Lean Six Sigma Green Belt",
-      "Structured & Meticulous Work Style",
-      "Autonomous Performance",
-      "Team Collaboration",
-      "Continuous Improvement & Process Development"
+      "Fullstack Software Development (React, Node.js, TypeScript)",
+      "Data-Driven Process Improvement & Lean Six Sigma (DMAIC)",
+      "Statistical Data Analysis & Business Intelligence (Excel, Minitab)",
+      "Process Mapping & Digitalization (Industry 4.0)",
+      "Strategic Guest Relations, CRM & Client Care",
+      "Operational Leadership & Change Management",
+      "Quality Assurance, Standardization & Root Cause Analysis",
+      "System Architecture & Modern Version Control (Git)"
     ],
     experienceTitle: "Professional Experience",
     workExperience: [
@@ -172,21 +174,21 @@ export const cvData: { sv: CVData; en: CVData } = {
         documentUrl: "/documents/lexicon-systemutveckling.pdf"
       },
       {
-        title: "Lean Six Sigma Green Belt",
+        title: "Lean Six Sigma Green Belt Certification",
         provider: "KPMG",
         period: "2024",
-        details: "Certification in process improvement, statistical analysis, and systematic quality assurance.",
+        details: "Professional certification program focused on data-driven process improvement, root-cause analysis, and statistical quality assurance:\nDMAIC Project Lifecycle: executing scoped process-improvement projects over 6–12 weeks to deliver measurable cost savings (COPQ) and efficiency gains.\nStatistical Analysis (Analyze): hypothesis testing (t-tests, chi-square), basic regression, and root-cause analysis (Pareto, fishbone, 5 Whys).\nProcess Improvement & Control (Improve/Control): Kaizen events, 5S, standard work, mistake-proofing (poka-yoke), and establishing control plans/SPC charts to sustain gains.\nProject Deliverables & Metrics: project charters with ROI calculations, baseline reports, pilot results, and tracking metrics (% cycle time, defect, or error reduction).\nData & Industry Applications: measurement system validation (MSA) using Excel/Minitab, applicable across manufacturing, hospitality, IT/DevOps, and service sectors.",
         documentUrl: "/documents/kpmg-six-sigma.pdf"
       },
       {
-        title: "Production Developer Industry 4.0",
+        title: "Production Development Engineering (Industry 4.0)",
         provider: "Higher Vocational Education (Diploma)",
         period: "2022 – 2023",
-        details: "Focusing on industrial digitalization, smart manufacturing, automation, and production flow optimization.",
+        details: "Higher Vocational Diploma in:\nLean Manufacturing\nDigital Manufacturing\nIndustrial Automation\nProduction Planning\nData-driven Process Improvement\nSmart Factory Technologies\nQuality Management\nContinuous Improvement",
         documentUrl: "/documents/industri 4-0.pdf"
       },
       {
-        title: "Green Certificate for CNC Operation",
+        title: "Green Card Certification for CNC Operations",
         provider: "Skärteknikcentrum Sverige",
         period: "2017",
         details: "National competency validation and license for independent operations in CNC machining.",
@@ -195,22 +197,22 @@ export const cvData: { sv: CVData; en: CVData } = {
       {
         title: "CNC Technician with CAD/CAM",
         provider: "Vocational Education",
-        period: "2016 – 2017",
-        details: "Vocational training focused on CNC programming, blueprint reading, CAD/CAM systems, metrology, and materials science.",
+        period: "2017 – 2018",
+        details: "Comprehensive vocational program specializing in advanced manufacturing, CAD/CAM programming, and production engineering:\nAdvanced CAD & CAM: 3D computer-aided design and computerized manufacturing preparations (Advanced CAD/CAM systems).\nAdvanced CNC Programming: programming, setup, and operation of complex CNC machining centers for high-precision component production.\nProduction & Quality Systems: practical knowledge of production economics, quality management, and continuous improvement systems.\nProfessional Competencies: qualified to work independently as a CNC Technician, CAM Planner, Production Planner, or Production Engineer.\nIndustry Experience (LIA): applied practical training and project execution directly in a professional manufacturing environment.",
         documentUrl: "/documents/cnc-tekniker.pdf"
       },
       {
-        title: "Diploma in Hotel Management & Catering Technology",
-        provider: "Mumbai",
+        title: "Diploma in Hotel Management, Catering Technology & Applied Nutrition [IHMCTAN]",
+        provider: "IHM, Dadar - Mumbai",
         period: "1993 – 1996",
-        details: "Covering leadership, administration, and guest relations in the hospitality sector.",
+        details: "Three-year comprehensive program emphasizing operational leadership, strategic customer service, and interpersonal communication as followed in high-end tourism markets and hotel sector establishments:\nStrategic Guest Relations: active listening, conflict resolution, cultural awareness, and anticipating/foreseeing guest needs.\nCommunication & Collaboration: team coordination, staff training, professional vendor relations, and cross-departmental coordination.\nAnalytical Operations & Service Quality: cost analysis, inventory monitoring, data-backed service adjustments, and maintaining quality standards.\nChange Management & Leadership: adapting service models to changing market trends, leading diverse hospitality teams, and managing day-to-day outlet adjustments.\nF&B Standards & Production: food production safety, kitchen hygiene regulations (HACCP), and standard culinary service procedures.",
         documentUrl: "/documents/hotel-management.pdf"
       },
       {
         title: "Bachelor of Arts (Economics)",
         provider: "Kerala University",
         period: "1987 – 1992",
-        details: "Academic foundation in economic theory, analysis, and macroeconomics.",
+        details: "Academic program in economics, validated by UHR as equivalent to a Swedish Higher Education Diploma, specializing in microeconomic theory (market mechanisms, pricing systems) and macroeconomic theory (national growth, fiscal policy) to develop core competencies:\nInformation Analysis & Criticism: gathering, evaluating, and critically interpreting complex economic data and information.\nStructured Problem Solving: identifying, formulating, and solving economic problems independently within defined time frames.\nFact-Based Communication: presenting and discussing economic theories, trends, and analytical solutions clearly in speech and writing.\nEthical & Social Judgment: making assessments informed by relevant disciplinary, social, and ethical perspectives.",
         documentUrl: "/documents/kerala-university.pdf"
       }
     ],
@@ -221,11 +223,13 @@ export const cvData: { sv: CVData; en: CVData } = {
       { name: "Malayalam", level: "Native language" }
     ],
     referencesTitle: "References",
-    references: "References are gladly provided upon request.",
+    references: "References will be provided on request.",
     contactTitle: "Contact Information",
     contactEmail: "Email",
     contactPhone: "Phone",
     contactLocation: "Location",
+    contactNationality: "Nationality",
+    contactNationalityValue: "Swedish (Swedish citizen)",
     pdfDownloadText: "Download CV as PDF",
     tabs: {
       about: "About Me",

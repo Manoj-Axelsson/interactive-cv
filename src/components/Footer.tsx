@@ -1,15 +1,10 @@
 import React from 'react';
 
-interface FooterProps {
-  referencesText: string;
-}
-
-export const Footer: React.FC<FooterProps> = ({ referencesText }) => {
+export const Footer: React.FC = () => {
   return (
     <footer className="app-footer">
       <div className="footer-divider"></div>
       <div className="footer-content">
-        <p className="references-notice">{referencesText}</p>
         <p className="copyright-text">
           &copy; {new Date().getFullYear()} Manoj Axelsson. All rights reserved.
         </p>
@@ -17,18 +12,31 @@ export const Footer: React.FC<FooterProps> = ({ referencesText }) => {
 
       <style>{`
         .app-footer {
-          margin-top: 5rem;
-          padding-bottom: 3rem;
+          margin-top: 3rem;
+          padding-bottom: 2rem;
           text-align: center;
           color: var(--text-secondary);
+        }
+
+        @media (min-width: 768px) {
+          .app-footer {
+            margin-top: 5rem;
+            padding-bottom: 3rem;
+          }
         }
 
         .footer-divider {
           width: 60px;
           height: 1px;
           background-color: var(--accent-gold);
-          margin: 0 auto 2rem;
+          margin: 0 auto 1.5rem;
           opacity: 0.3;
+        }
+
+        @media (min-width: 768px) {
+          .footer-divider {
+            margin: 0 auto 2rem;
+          }
         }
 
         .footer-content {
@@ -37,15 +45,16 @@ export const Footer: React.FC<FooterProps> = ({ referencesText }) => {
           gap: 0.6rem;
         }
 
-        .references-notice {
-          font-style: italic;
-          font-size: 1.05rem;
-        }
-
         .copyright-text {
-          font-size: 0.95rem;
+          font-size: 0.85rem;
           letter-spacing: 0.05em;
           opacity: 0.7;
+        }
+
+        @media (min-width: 768px) {
+          .copyright-text {
+            font-size: 0.95rem;
+          }
         }
       `}</style>
     </footer>
