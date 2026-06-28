@@ -84,7 +84,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
             // Simple visual meter for languages
             let percentage = "60%";
             if (langItem.name.toLowerCase().includes('svenska') || langItem.name.toLowerCase().includes('swedish')) percentage = "95%";
-            if (langItem.name.toLowerCase().includes('engelska') || langItem.name.toLowerCase().includes('english')) percentage = "95%";
+            if (langItem.name.toLowerCase().includes('engelska') || langItem.name.toLowerCase().includes('english')) percentage = "100%";
             if (langItem.name.toLowerCase().includes('malayalam')) percentage = "100%";
 
             return (
