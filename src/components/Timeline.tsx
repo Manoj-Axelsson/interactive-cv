@@ -146,8 +146,8 @@ export const Timeline: React.FC<TimelineProps> = ({
       <div className="timeline-path">
         {filteredItems.map((item) => {
           const isExpanded = expandedItems[item.id] !== false; // expanded by default for readability, or collapsed?
-          // Let's make them expanded by default but collapsible.
-          const hasDetails = item.content && item.content.length > 0;
+          // Suppress details completely in the "Visa Alla / Show All" view to prevent cognitive overload
+          const hasDetails = filter !== 'all' && item.content && item.content.length > 0;
 
           return (
             <div key={item.id} className="timeline-item fade-in">
@@ -160,7 +160,11 @@ export const Timeline: React.FC<TimelineProps> = ({
 
               {/* Card Content */}
               <div className="timeline-card">
-                <div className="timeline-card-header" onClick={() => hasDetails && toggleExpand(item.id)}>
+                <div 
+                  className="timeline-card-header" 
+                  onClick={() => hasDetails && toggleExpand(item.id)}
+                  style={{ cursor: hasDetails ? 'pointer' : 'default' }}
+                >
                   <div className="title-section">
                     <span className="timeline-period">{item.period}</span>
                     <h3 className="timeline-item-title">{item.title}</h3>
@@ -397,6 +401,7 @@ export const Timeline: React.FC<TimelineProps> = ({
         .timeline-period {
           font-size: 0.85rem;
           font-style: italic;
+          font-weight: bold;
           color: var(--accent-gold);
           letter-spacing: 0.05em;
         }
