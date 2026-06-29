@@ -139,7 +139,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           background-image: linear-gradient(
             var(--hero-overlay), 
             var(--hero-overlay)
-          ), url('/background%20pic.jpg');
+          );
           background-size: cover;
           background-position: center;
           opacity: 0.5;

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Sun, Moon, Globe } from 'lucide-react';
+import { Sun, Moon, Globe, Download } from 'lucide-react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 interface NavbarProps {
   currentTab: 'about' | 'experience' | 'contact';
@@ -16,63 +18,99 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  currentTab,
-  setTab,
-  lang,
-  setLang,
-  theme,
-  toggleTheme,
-  tabNames
-}) => {
+                                                currentTab,
+                                                setTab,
+                                                lang,
+                                                setLang,
+                                                theme,
+                                                toggleTheme,
+                                                tabNames
+                                              }) => {
+  const handleDownloadPDF = async () => {
+    const originalTab = currentTab;
+
+    // Switch to about tab to capture full CV
+    setTab('about');
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    const element = document.body;
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: theme === 'dark' ? '#121316' : '#fbfaf7'
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('Manoj-Axelsson-CV.pdf');
+
+    // Restore original tab
+    setTab(originalTab);
+  };
+
   return (
-    <header className="navbar-header">
-      <nav className="nav-container">
-        {/* Nav Tabs */}
-        <div className="nav-links">
-          <button
-            className={`nav-tab ${currentTab === 'about' ? 'active' : ''}`}
-            onClick={() => setTab('about')}
-          >
-            {tabNames.about}
-          </button>
-          <button
-            className={`nav-tab ${currentTab === 'experience' ? 'active' : ''}`}
-            onClick={() => setTab('experience')}
-          >
-            {tabNames.experience}
-          </button>
-          <button
-            className={`nav-tab ${currentTab === 'contact' ? 'active' : ''}`}
-            onClick={() => setTab('contact')}
-          >
-            {tabNames.contact}
-          </button>
-        </div>
+      <header className="navbar-header">
+        <nav className="nav-container">
+          {/* Nav Tabs */}
+          <div className="nav-links">
+            <button
+                className={`nav-tab ${currentTab === 'about' ? 'active' : ''}`}
+                onClick={() => setTab('about')}
+            >
+              {tabNames.about}
+            </button>
+            <button
+                className={`nav-tab ${currentTab === 'experience' ? 'active' : ''}`}
+                onClick={() => setTab('experience')}
+            >
+              {tabNames.experience}
+            </button>
+            <button
+                className={`nav-tab ${currentTab === 'contact' ? 'active' : ''}`}
+                onClick={() => setTab('contact')}
+            >
+              {tabNames.contact}
+            </button>
+          </div>
 
-        {/* Controls */}
-        <div className="nav-controls">
-          {/* Language Toggle */}
-          <button
-            className="control-btn lang-toggle"
-            onClick={() => setLang(lang === 'sv' ? 'en' : 'sv')}
-            title={lang === 'sv' ? 'Switch to English' : 'Byt till Svenska'}
-          >
-            <Globe size={16} />
-            <span className="lang-label">{lang.toUpperCase()}</span>
-          </button>
+          {/* Controls */}
+          <div className="nav-controls">
+            {/* Download PDF */}
+            <button
+                className="control-btn pdf-btn"
+                onClick={handleDownloadPDF}
+                title={lang === 'sv' ? 'Ladda ner CV' : 'Download CV'}
+            >
+              <Download size={16} />
+              <span className="lang-label">{lang === 'sv' ? 'CV' : 'CV'}</span>
+            </button>
 
-          {/* Theme Toggle */}
-          <button
-            className="control-btn theme-toggle"
-            onClick={toggleTheme}
-            title={theme === 'light' ? 'Dark Mode' : 'Light Mode'}
-          >
-            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-          </button>
-        </div>
-      </nav>
+            {/* Language Toggle */}
+            <button
+                className="control-btn lang-toggle"
+                onClick={() => setLang(lang === 'sv' ? 'en' : 'sv')}
+                title={lang === 'sv' ? 'Switch to English' : 'Byt till Svenska'}
+            >
+              <Globe size={16} />
+              <span className="lang-label">{lang.toUpperCase()}</span>
+            </button>
 
-      <style>{`
+            {/* Theme Toggle */}
+            <button
+                className="control-btn theme-toggle"
+                onClick={toggleTheme}
+                title={theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+            >
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+          </div>
+        </nav>
+
+        <style>{`
         .navbar-header {
           position: sticky;
           top: 0;
@@ -178,13 +216,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           background-color: var(--highlight-color);
         }
 
+        .pdf-btn:hover {
+          color: var(--accent-gold);
+          border-color: var(--accent-gold);
+        }
+
         .lang-label {
           font-size: 0.85rem;
           font-weight: bold;
           letter-spacing: 0.05em;
         }
       `}</style>
-    </header>
+      </header>
   );
 };
 export default Navbar;
