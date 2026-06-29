@@ -1,7 +1,5 @@
 import React from 'react';
 import { Sun, Moon, Globe, Download } from 'lucide-react';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 
 interface NavbarProps {
   currentTab: 'about' | 'experience' | 'contact';
@@ -26,30 +24,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                                                 toggleTheme,
                                                 tabNames
                                               }) => {
-  const handleDownloadPDF = async () => {
-    const originalTab = currentTab;
-
-    // Switch to about tab to capture full CV
-    setTab('about');
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    const element = document.body;
-    const canvas = await html2canvas(element, {
-      scale: 2,
-      useCORS: true,
-      backgroundColor: theme === 'dark' ? '#121316' : '#fbfaf7'
-    });
-
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save('Manoj-Axelsson-CV.pdf');
-
-    // Restore original tab
-    setTab(originalTab);
+  const handleDownloadPDF = () => {
+    const link = document.createElement('a');
+    link.href = '/documents/Manoj_John_Axelsson_CV.pdf';
+    link.download = 'Manoj_John_Axelsson_CV.pdf';
+    link.click();
   };
 
   return (
@@ -86,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 title={lang === 'sv' ? 'Ladda ner CV' : 'Download CV'}
             >
               <Download size={16} />
-              <span className="lang-label">{lang === 'sv' ? 'CV' : 'CV'}</span>
+              <span className="lang-label">CV</span>
             </button>
 
             {/* Language Toggle */}
@@ -195,38 +174,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         .nav-controls {
           display: flex;
           gap: 1rem;
-          align-items: center;
-        }
-
-        .control-btn {
-          background: none;
-          border: 1px solid var(--border-color);
-          color: var(--text-secondary);
-          border-radius: 4px;
-          padding: 0.4rem 0.7rem;
-          display: flex;
-          align-items: center;
-          gap: 0.4rem;
-          transition: all 0.3s ease;
-        }
-
-        .control-btn:hover {
-          color: var(--accent-gold);
-          border-color: var(--accent-gold);
-          background-color: var(--highlight-color);
-        }
-
-        .pdf-btn:hover {
-          color: var(--accent-gold);
-          border-color: var(--accent-gold);
-        }
-
-        .lang-label {
-          font-size: 0.85rem;
-          font-weight: bold;
-          letter-spacing: 0.05em;
-        }
-      `}</style>
+           }
+        `}</style>
       </header>
   );
 };
