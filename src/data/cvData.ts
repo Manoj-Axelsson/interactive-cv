@@ -4,8 +4,8 @@ export const cvData: { sv: CVData; en: CVData } = {
   sv: {
     title: "Manoj John Axelsson",
     tagline: "",
-    heroTitle: "Där operationell excellens möter modern systemutveckling",
-    heroSubtitle: "Fullstackutvecklare och verksamhetsutvecklare som förenar kunskap från industri och IT med ett gemensamt mål: att skapa effektiva, robusta och produktiva arbetsflöden.",
+    heroTitle: "Fullstackutvecklare med  rötter i tillverkande industrin",
+    heroSubtitle: "Med över ett decennium av erfarenhet inom diverse sektorer och organisationer, där min framgång ständigt har vilat på min förmåga att snabbt förstå nya miljöer, team och hierarkier, tillämpar jag nu samma entusiasm, analytiska skärpa och strategiska perspektiv på modern mjukvaruutveckling med hjälp av React, Node.js och TypeScript.",
     profile: "Driven, analytisk och strategisk yrkesverksam med gedigen kompetens inom både systemutveckling och produktionsteknik, samt dokumenterad erfarenhet av Lean och Six Sigma-metodik. Under hela mitt yrkesliv har jag fokuserat på att samla in, analysera och omsätta komplex information till praktiska förbättringar och strategiska beslut. Jag trivs i mötet med människor, arbetar strukturerat och skapar förtroende genom ett professionellt och lyhört bemötande. Genom min kombinerade bakgrund inom modern systemutveckling, tillverkande industri, verksamhetsutveckling och eget företagande har jag utvecklat en stark förmåga att se helhetslösningar och förstå hur tillförlitlig data skapar reellt värde för organisationer.\n\nI mitt arbete kombinerar jag ett genuint engagemang för mina uppgifter med ett lyhört och tålmodigt förhållningssätt. Jag värdesätter god kommunikation på både svenska och engelska, och strävar alltid efter att lyssna och observera noggrant innan jag fattar beslut. Som person är jag punktlig, lojal och mån om att skapa struktur, vilket bland annat visar sig i mitt intresse för noggrann dokumentation. Jag motiveras av att driva och genomföra förbättringar, samtidigt som jag har en empatisk förståelse för verksamhetens och människors förutsättningar. När analysen kräver det har jag förmågan att fatta svåra men nödvändiga beslut på ett sakligt och tryggt sätt, vilket gör mig till en pålitlig samarbetspartner i krävande förändringsarbeten.",
     coreCompetenciesTitle: "Kärnkompetenser",
     coreCompetencies: [
@@ -112,7 +112,7 @@ export const cvData: { sv: CVData; en: CVData } = {
     contactLocation: "Ort",
     contactNationality: "Medborgarskap",
     contactNationalityValue: "Svensk (Svensk medborgare)",
-    pdfDownloadText: "Hämta CV som PDF",
+    pdfDownloadText: "↓ CV",
     tabs: {
       about: "Om Mig",
       experience: "Erfarenhet",
@@ -122,8 +122,8 @@ export const cvData: { sv: CVData; en: CVData } = {
   en: {
     title: "Manoj John Axelsson",
     tagline: "",
-    heroTitle: "Where Operational Excellence Meets Modern Software Engineering",
-    heroSubtitle: "Fullstack developer and operations developer uniting knowledge from industry and IT with a common goal: creating efficient, robust, and productive workflows.",
+    heroTitle: "Fullstack Developer with Roots in Manufacturing Industry",
+    heroSubtitle: "10+ years across diverse roles, sectors and organisations — where the ability to quickly read new environments, teams and leadership structures has always been the key to success. Now directing that same drive, analytical mindset and holistic perspective towards modern software development with React, Node.js and TypeScript.",
     profile: "Driven, analytical, and strategic professional with solid expertise in both software development and production engineering, along with documented competency in Lean and Six Sigma methodologies. Throughout my career, my focus has been on collecting, analyzing, and transforming complex data into actionable improvements and strategic decisions. I thrive in interpersonal environments, work in a structured manner, and build trust through a professional and responsive approach. With my combined background in modern software engineering, manufacturing, business development, and entrepreneurship, I have developed a strong ability to see holistic solutions and understand how reliable data generates real value for organizations.\n\nIn my work, I combine a genuine dedication to my responsibilities with an attentive and patient approach. I value clear communication in both Swedish and English, and always strive to listen and observe carefully before making decisions. As a person, I am punctual, loyal, and committed to maintaining order, which is reflected in my focus on thorough documentation. I am motivated by driving and implementing improvements, while maintaining an empathetic understanding of the realities faced by teams and organizations. When analysis demands it, I have the capacity to make difficult but necessary decisions in an objective and assured manner, making me a reliable partner to trust and reason with in challenging environments.",
     coreCompetenciesTitle: "Core Competencies",
     coreCompetencies: [
@@ -230,7 +230,7 @@ export const cvData: { sv: CVData; en: CVData } = {
     contactLocation: "Location",
     contactNationality: "Nationality",
     contactNationalityValue: "Swedish (Swedish citizen)",
-    pdfDownloadText: "Download CV as PDF",
+    pdfDownloadText: "↓ CV",
     tabs: {
       about: "About Me",
       experience: "Experience",
