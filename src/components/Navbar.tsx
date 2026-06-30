@@ -2,8 +2,8 @@ import React from 'react';
 import { Sun, Moon, Globe, Download } from 'lucide-react';
 
 interface NavbarProps {
-  currentTab: 'about' | 'experience' | 'contact';
-  setTab: (tab: 'about' | 'experience' | 'contact') => void;
+  currentTab: 'about' | 'experience' | 'recommendations' | 'contact';
+  setTab: (tab: 'about' | 'experience' | 'recommendations' | 'contact') => void;
   lang: 'sv' | 'en';
   setLang: (lang: 'sv' | 'en') => void;
   theme: 'dark' | 'light';
@@ -11,6 +11,7 @@ interface NavbarProps {
   tabNames: {
     about: string;
     experience: string;
+    recommendations: string;
     contact: string;
   };
 }
@@ -47,6 +48,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => setTab('experience')}
             >
               {tabNames.experience}
+            </button>
+            <button
+                className={`nav-tab ${currentTab === 'recommendations' ? 'active' : ''}`}
+                onClick={() => setTab('recommendations')}
+            >
+              {tabNames.recommendations}
             </button>
             <button
                 className={`nav-tab ${currentTab === 'contact' ? 'active' : ''}`}

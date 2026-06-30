@@ -5,13 +5,14 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
+import Recommendations from './pages/Recommendations';
 import { inject, track } from '@vercel/analytics';
 
 // Initialize Vercel Web Analytics
 inject();
 
 function App() {
-  const [tab, setTab] = useState<'about' | 'experience' | 'contact'>('about');
+  const [tab, setTab] = useState<'about' | 'experience' | 'recommendations' | 'contact'>('about');
   const [lang, setLang] = useState<'sv' | 'en'>('sv');
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const savedTheme = localStorage.getItem('cv-theme') as 'dark' | 'light' | null;
@@ -93,6 +94,9 @@ function App() {
         )}
         {tab === 'experience' && (
           <Experience data={currentCV} lang={lang} />
+        )}
+        {tab === 'recommendations' && (
+          <Recommendations data={currentCV} lang={lang} />
         )}
         {tab === 'contact' && (
           <Contact data={currentCV} lang={lang} />

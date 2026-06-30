@@ -106,6 +106,30 @@ export const cvData: { sv: CVData; en: CVData } = {
     ],
     referencesTitle: "Referenser",
     references: "Referenser lämnas gärna på begäran.",
+    recommendationsTitle: "Rekommendationer",
+    recommendations: [
+      {
+        name: "F.d. Kollega (Exempel)",
+        role: "Produktionschef / Supervisor",
+        relation: "Tidigare chef",
+        country: "Sverige",
+        text: "Manoj har en fantastisk förmåga att analysera komplexa problem och hitta effektiva lösningar. Hans kombination av analytisk skärpa, Lean-metodik och systemutveckling gör honom till en ovärderlig tillgång i alla team. Han är alltid noggrann, lojal och professionell.",
+        date: "2025",
+        isLinkedInVerified: true,
+        linkedinUrl: "https://www.linkedin.com/in/manoj-john-axelsson/"
+      },
+      {
+        name: "Rajesh Kumar (Exempel)",
+        role: "Lead Automation Engineer",
+        relation: "Kollega",
+        country: "Indien",
+        text: "Manoj är en mycket skicklig ingenjör med en fantastisk inställning till lagarbete. Hans kompetens inom digitalisering och automation var avgörande för vårt projekt.",
+        originalText: "മനോജ് വളരെ സമർത്ഥനായ ഒരു എഞ്ചിനീയറാണ്, അദ്ദേഹത്തിന്റെ ടീം വർക്ക് മനോഭാവം പ്രശംസനീയമാണ്. ഞങ്ങളുടെ പ്രോജക്റ്റിൽ അദ്ദേഹത്തിന്റെ സംഭാവന വളരെ വലുതായിരുന്നു.",
+        nativeLanguage: "Malayalam",
+        date: "2024",
+        isLinkedInVerified: false
+      }
+    ],
     contactTitle: "Kontaktuppgifter",
     contactEmail: "E-post",
     contactPhone: "Telefon",
@@ -116,6 +140,7 @@ export const cvData: { sv: CVData; en: CVData } = {
     tabs: {
       about: "Om Mig",
       experience: "Erfarenhet",
+      recommendations: "Referenser",
       contact: "Kontakt"
     }
   },
@@ -224,6 +249,30 @@ export const cvData: { sv: CVData; en: CVData } = {
     ],
     referencesTitle: "References",
     references: "References will be provided on request.",
+    recommendationsTitle: "Recommendations",
+    recommendations: [
+      {
+        name: "Former Colleague (Example)",
+        role: "Production Manager / Supervisor",
+        relation: "Former Manager",
+        country: "Sweden",
+        text: "Manoj has a fantastic ability to analyze complex problems and find efficient solutions. His combination of analytical sharp mind, Lean methodology, and software development makes him an invaluable asset to any team. He is always diligent, loyal, and professional.",
+        date: "2025",
+        isLinkedInVerified: true,
+        linkedinUrl: "https://www.linkedin.com/in/manoj-john-axelsson/"
+      },
+      {
+        name: "Rajesh Kumar (Example)",
+        role: "Lead Automation Engineer",
+        relation: "Colleague",
+        country: "India",
+        text: "Manoj is a highly skilled engineer with a fantastic attitude towards teamwork. His competence in digitalization and automation was crucial to our project.",
+        originalText: "മനോജ് വളരെ സമർത്ഥനായ ഒരു എഞ്ചിനീയറാണ്, അദ്ദേഹത്തിന്റെ ടീം വർക്ക് മനോഭാവം പ്രശംസനീയമാണ്. ഞങ്ങളുടെ പ്രോജക്റ്റിൽ അദ്ദേഹത്തിന്റെ സംഭാവന വളരെ വലുതായിരുന്നു.",
+        nativeLanguage: "Malayalam",
+        date: "2024",
+        isLinkedInVerified: false
+      }
+    ],
     contactTitle: "Contact Information",
     contactEmail: "Email",
     contactPhone: "Phone",
@@ -234,6 +283,7 @@ export const cvData: { sv: CVData; en: CVData } = {
     tabs: {
       about: "About Me",
       experience: "Experience",
+      recommendations: "Recommendations",
       contact: "Contact"
     }
   }

@@ -40,6 +40,8 @@ export interface CVData {
   languages: LanguageItem[];
   referencesTitle: string;
   references: string;
+  recommendationsTitle: string;
+  recommendations: RecommendationItem[];
   contactTitle: string;
   contactEmail: string;
   contactPhone: string;
@@ -50,6 +52,20 @@ export interface CVData {
   tabs: {
     about: string;
     experience: string;
+    recommendations: string;
     contact: string;
   };
+}
+
+export interface RecommendationItem {
+  name: string;
+  role: string;
+  relation: string;
+  country: string;
+  text: string;
+  originalText?: string;
+  nativeLanguage?: string;
+  date: string;
+  isLinkedInVerified: boolean;
+  linkedinUrl?: string;
 }
