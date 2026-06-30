@@ -173,8 +173,65 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         .nav-controls {
           display: flex;
-          gap: 1rem;
-           }
+          gap: 0.8rem;
+          justify-content: center;
+          align-items: center;
+          margin-top: 0.4rem;
+        }
+
+        @media (min-width: 600px) {
+          .nav-controls {
+            margin-top: 0;
+          }
+        }
+
+        .control-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          background-color: var(--highlight-color);
+          border: 1.5px solid var(--border-color);
+          color: var(--text-secondary);
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          border-radius: 4px;
+          cursor: pointer;
+          min-height: 40px; /* Touch target size */
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .control-btn:hover {
+          border-color: var(--accent-gold);
+          color: var(--accent-gold);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px var(--shadow-color);
+          background-color: var(--accent-gold-muted);
+        }
+
+        .control-btn svg {
+          color: var(--accent-gold);
+          transition: transform 0.3s ease;
+        }
+
+        .control-btn:hover svg {
+          transform: scale(1.15);
+        }
+
+        .lang-label {
+          font-family: var(--font-family);
+          font-weight: 600;
+        }
+
+        /* Balanced padding for icon-only theme toggle */
+        .theme-toggle {
+          padding: 0.5rem;
+          width: 40px;
+          height: 40px;
+        }
         `}</style>
       </header>
   );
