@@ -89,7 +89,7 @@ const TestimonialCard: React.FC<{ item: RecommendationItem; lang: 'sv' | 'en' }>
 };
 
 export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) => {
-  // Web3Forms Access Key: Read from Vite environment variable or use placeholder
+  // Web3Forms Access Key configuration (managed via Vercel env variables)
   const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
 
   const [formData, setFormData] = useState({
