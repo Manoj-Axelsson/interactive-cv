@@ -109,25 +109,14 @@ export const cvData: { sv: CVData; en: CVData } = {
     recommendationsTitle: "Rekommendationer",
     recommendations: [
       {
-        name: "F.d. Kollega (Exempel)",
-        role: "Produktionschef / Supervisor",
-        relation: "Tidigare chef",
+        name: "Isac Lindh",
+        role: "Developer | UX designer",
+        relation: "Studerade tillsammans",
         country: "Sverige",
-        text: "Manoj har en fantastisk förmåga att analysera komplexa problem och hitta effektiva lösningar. Hans kombination av analytisk skärpa, Lean-metodik och systemutveckling gör honom till en ovärderlig tillgång i alla team. Han är alltid noggrann, lojal och professionell.",
-        date: "2025",
+        text: "Manoj är en trevlig glädjespridare, som är dedikerad till sitt arbete samt ser till att alla känner sig inkluderade 🌼",
+        date: "2026",
         isLinkedInVerified: true,
-        linkedinUrl: "https://www.linkedin.com/in/manoj-john-axelsson/"
-      },
-      {
-        name: "Rajesh Kumar (Exempel)",
-        role: "Lead Automation Engineer",
-        relation: "Kollega",
-        country: "Indien",
-        text: "Manoj är en mycket skicklig ingenjör med en fantastisk inställning till lagarbete. Hans kompetens inom digitalisering och automation var avgörande för vårt projekt.",
-        originalText: "മനോജ് വളരെ സമർത്ഥനായ ഒരു എഞ്ചിനീയറാണ്, അദ്ദേഹത്തിന്റെ ടീം വർക്ക് മനോഭാവം പ്രശംസനീയമാണ്. ഞങ്ങളുടെ പ്രോജക്റ്റിൽ അദ്ദേഹത്തിന്റെ സംഭാവന വളരെ വലുതായിരുന്നു.",
-        nativeLanguage: "Malayalam",
-        date: "2024",
-        isLinkedInVerified: false
+        linkedinUrl: "https://www.linkedin.com/in/manoj-john-axelsson/details/recommendations/"
       }
     ],
     contactTitle: "Kontaktuppgifter",
@@ -252,25 +241,14 @@ export const cvData: { sv: CVData; en: CVData } = {
     recommendationsTitle: "Recommendations",
     recommendations: [
       {
-        name: "Former Colleague (Example)",
-        role: "Production Manager / Supervisor",
-        relation: "Former Manager",
+        name: "Isac Lindh",
+        role: "Developer | UX designer",
+        relation: "Studied together",
         country: "Sweden",
-        text: "Manoj has a fantastic ability to analyze complex problems and find efficient solutions. His combination of analytical sharp mind, Lean methodology, and software development makes him an invaluable asset to any team. He is always diligent, loyal, and professional.",
-        date: "2025",
+        text: "Manoj is a pleasant person who spreads joy, is dedicated to his work, and makes sure everyone feels included 🌼",
+        date: "2026",
         isLinkedInVerified: true,
-        linkedinUrl: "https://www.linkedin.com/in/manoj-john-axelsson/"
-      },
-      {
-        name: "Rajesh Kumar (Example)",
-        role: "Lead Automation Engineer",
-        relation: "Colleague",
-        country: "India",
-        text: "Manoj is a highly skilled engineer with a fantastic attitude towards teamwork. His competence in digitalization and automation was crucial to our project.",
-        originalText: "മനോജ് വളരെ സമർത്ഥനായ ഒരു എഞ്ചിനീയറാണ്, അദ്ദേഹത്തിന്റെ ടീം വർക്ക് മനോഭാവം പ്രശംസനീയമാണ്. ഞങ്ങളുടെ പ്രോജക്റ്റിൽ അദ്ദേഹത്തിന്റെ സംഭാവന വളരെ വലുതായിരുന്നു.",
-        nativeLanguage: "Malayalam",
-        date: "2024",
-        isLinkedInVerified: false
+        linkedinUrl: "https://www.linkedin.com/in/manoj-john-axelsson/details/recommendations/"
       }
     ],
     contactTitle: "Contact Information",
