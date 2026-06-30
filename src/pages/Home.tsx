@@ -105,9 +105,9 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
       <style>{`
         .hero-statement {
           position: relative;
-          text-align: center;
+          text-align: left;
           margin-bottom: 2rem;
-          padding: 2rem 1rem;
+          padding: 2rem 1.25rem;
           border: 1.5px solid var(--accent-gold);
           border-radius: 4px;
           overflow: hidden;
@@ -117,14 +117,14 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
 
         @media (min-width: 600px) {
           .hero-statement {
-            padding: 3rem 2rem;
+            padding: 3rem 2.5rem;
             margin-bottom: 3rem;
           }
         }
 
         @media (min-width: 768px) {
           .hero-statement {
-            padding: 3.5rem 2rem;
+            padding: 3.5rem 2.5rem;
             margin-bottom: 3.5rem;
           }
         }
@@ -139,7 +139,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           background-image: linear-gradient(
             var(--hero-overlay), 
             var(--hero-overlay)
-          );
+          ), url('/background%20pic.jpg');
           background-size: cover;
           background-position: center;
           opacity: 0.5;
@@ -179,7 +179,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           line-height: 1.6;
           color: var(--text-primary);
           max-width: 800px;
-          margin: 0 auto;
+          margin: 0;
           font-weight: 400;
           text-shadow: 0 1px 4px var(--shadow-color);
         }
@@ -187,6 +187,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
         @media (min-width: 600px) {
           .hero-statement-quote {
             font-size: 1.25rem;
+            text-align: justify;
           }
         }
 
