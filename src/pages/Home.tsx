@@ -16,7 +16,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
       {/* Hero Statement */}
       <div className="hero-statement">
         <h2 className="hero-statement-title">{data.heroTitle}</h2>
-        <blockquote className="hero-statement-quote">”{data.heroSubtitle}”</blockquote>
+        <blockquote className="hero-statement-quote">{data.heroSubtitle}</blockquote>
       </div>
 
       {/* Intro Profile Card */}
