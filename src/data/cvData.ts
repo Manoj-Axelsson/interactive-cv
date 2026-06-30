@@ -116,7 +116,7 @@ export const cvData: { sv: CVData; en: CVData } = {
         text: "Manoj är en trevlig glädjespridare, som är dedikerad till sitt arbete samt ser till att alla känner sig inkluderade 🌼",
         date: "2026",
         isLinkedInVerified: true,
-        linkedinUrl: "https://www.linkedin.com/in/manoj-john-axelsson/details/recommendations/"
+        linkedinUrl: "https://www.linkedin.com/in/manoj-axelsson/details/recommendations/"
       }
     ],
     contactTitle: "Kontaktuppgifter",
@@ -248,7 +248,7 @@ export const cvData: { sv: CVData; en: CVData } = {
         text: "Manoj is a pleasant person who spreads joy, is dedicated to his work, and makes sure everyone feels included 🌼",
         date: "2026",
         isLinkedInVerified: true,
-        linkedinUrl: "https://www.linkedin.com/in/manoj-john-axelsson/details/recommendations/"
+        linkedinUrl: "https://www.linkedin.com/in/manoj-axelsson/details/recommendations/"
       }
     ],
     contactTitle: "Contact Information",

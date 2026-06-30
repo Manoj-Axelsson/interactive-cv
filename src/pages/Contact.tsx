@@ -106,7 +106,7 @@ export const Contact: React.FC<ContactProps> = ({ data, lang }) => {
         
         <div className="networks-links">
           <a 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/in/manoj-axelsson/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="network-btn linkedin"

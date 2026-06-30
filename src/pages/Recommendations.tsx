@@ -73,7 +73,7 @@ const TestimonialCard: React.FC<{ item: RecommendationItem; lang: 'sv' | 'en' }>
         
         {item.isLinkedInVerified && (
           <a 
-            href={item.linkedinUrl || "https://www.linkedin.com/in/manoj-john-axelsson/"}
+            href={item.linkedinUrl || "https://www.linkedin.com/in/manoj-axelsson/"}
             target="_blank" 
             rel="noopener noreferrer" 
             className="linkedin-verified-badge"
