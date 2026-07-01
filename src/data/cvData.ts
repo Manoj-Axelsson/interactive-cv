@@ -117,6 +117,15 @@ export const cvData: { sv: CVData; en: CVData } = {
         date: "2026",
         isLinkedInVerified: true,
         linkedinUrl: "https://www.linkedin.com/in/manoj-axelsson/details/recommendations/"
+      },
+      {
+        name: "Pernilla Johansson",
+        role: "Produktionstekniker/teamleader",
+        relation: "Medarbetare - Part AB, Kalix",
+        country: "Sverige",
+        text: "Manoj är en mycket trevlig och engagerad kollega med en positiv inställning. Han har lätt för att skapa goda relationer och bidrar till en god stämning i arbetsgruppen genom sitt hjälpsamma och sociala sätt. Han är dessutom uthållig i sitt arbete och ger inte upp när han ställs inför utmaningar, utan arbetar metodiskt tills problemen är lösta.",
+        date: "2026",
+        isLinkedInVerified: false
       }
     ],
     contactTitle: "Kontaktuppgifter",
@@ -249,6 +258,15 @@ export const cvData: { sv: CVData; en: CVData } = {
         date: "2026",
         isLinkedInVerified: true,
         linkedinUrl: "https://www.linkedin.com/in/manoj-axelsson/details/recommendations/"
+      },
+      {
+        name: "Pernilla Johansson",
+        role: "Production Technician / Team Leader",
+        relation: "Co-worker - Part AB, Kalix",
+        country: "Sweden",
+        text: "Manoj is a very pleasant and dedicated colleague with a positive attitude. He easily builds good relationships and contributes to a good atmosphere in the workgroup through his helpful and social nature. Furthermore, he is persistent in his work and does not give up when faced with challenges, but works methodically until the problems are solved.",
+        date: "2026",
+        isLinkedInVerified: false
       }
     ],
     contactTitle: "Contact Information",
