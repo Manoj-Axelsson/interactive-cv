@@ -126,6 +126,17 @@ export const cvData: { sv: CVData; en: CVData } = {
         text: "Manoj är en mycket trevlig och engagerad kollega med en positiv inställning. Han har lätt för att skapa goda relationer och bidrar till en god stämning i arbetsgruppen genom sitt hjälpsamma och sociala sätt. Han är dessutom uthållig i sitt arbete och ger inte upp när han ställs inför utmaningar, utan arbetar metodiskt tills problemen är lösta.",
         date: "2026",
         isLinkedInVerified: false
+      },
+      {
+        name: "Mickey Bosco",
+        role: "Hotell- & restaurangägare",
+        relation: "Kund (Indien)",
+        country: "USA",
+        text: "Jag hade nöjet att vara kund hos Manoj, och jag kan med säkerhet säga att han är en av de sällsynta yrkesverksamma som lämnar ett bestående intryck. Hans genuina leende, positiva energi och välkomnande attityd gör varje interaktion trevlig, men det som verkligen utmärker honom är hans anmärkningsvärda intelligens och förmåga att förstå exakt vad människor behöver.\n\nManoj kombinerar professionalism med autenticitet, vilket skapar en upplevelse som känns både enkel och personlig. Han gör ständigt det lilla extra, och hans passion för excellens är tydlig i allt han gör. Jag rekommenderar starkt Manoj till alla som letar efter någon som är kunnig, pålitlig och ett absolut nöje att arbeta med.",
+        originalText: "I had the pleasure of being a customer of Manoj, and I can confidently say he is one of those rare professionals who leaves a lasting impression. His genuine smile, positive energy, and welcoming attitude make every interaction enjoyable, but what truly sets him apart is his remarkable intelligence and ability to understand exactly what people need.\n\nManoj combines professionalism with authenticity, creating an experience that feels both effortless and personal. He consistently goes above and beyond, and his passion for excellence is evident in everything he does. I highly recommend Manoj to anyone looking for someone who is knowledgeable, trustworthy, and an absolute pleasure to work with.",
+        nativeLanguage: "en",
+        date: "2026",
+        isLinkedInVerified: false
       }
     ],
     contactTitle: "Kontaktuppgifter",
@@ -265,6 +276,15 @@ export const cvData: { sv: CVData; en: CVData } = {
         relation: "Co-worker - Part AB, Kalix",
         country: "Sweden",
         text: "Manoj is a very pleasant and dedicated colleague with a positive attitude. He easily builds good relationships and contributes to a good atmosphere in the workgroup through his helpful and social nature. Furthermore, he is persistent in his work and does not give up when faced with challenges, but works methodically until the problems are solved.",
+        date: "2026",
+        isLinkedInVerified: false
+      },
+      {
+        name: "Mickey Bosco",
+        role: "Hospitality Group Owner",
+        relation: "Client (India)",
+        country: "United States",
+        text: "I had the pleasure of being a customer of Manoj, and I can confidently say he is one of those rare professionals who leaves a lasting impression. His genuine smile, positive energy, and welcoming attitude make every interaction enjoyable, but what truly sets him apart is his remarkable intelligence and ability to understand exactly what people need.\n\nManoj combines professionalism with authenticity, creating an experience that feels both effortless and personal. He consistently goes above and beyond, and his passion for excellence is evident in everything he does. I highly recommend Manoj to anyone looking for someone who is knowledgeable, trustworthy, and an absolute pleasure to work with.",
         date: "2026",
         isLinkedInVerified: false
       }
