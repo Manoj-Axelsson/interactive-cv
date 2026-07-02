@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
       <div className="footer-divider"></div>
       <div className="footer-content">
         <p className="copyright-text">
-          &copy; {new Date().getFullYear()} Manoj Axelsson. All rights reserved.
+          &copy; Manoj Axelsson - The AXIS Framework {new Date().getFullYear()}
         </p>
       </div>
 
