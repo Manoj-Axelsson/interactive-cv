@@ -27,8 +27,8 @@ export const SkillsGrid: React.FC<SkillsGridProps> = ({ lang }) => {
   const skills: SkillItem[] = [
     // Lean & Process Development
     {
-      nameSV: "Lean Six Sigma Green Belt & metodik",
-      nameEN: "Lean Six Sigma Green Belt & Methodology",
+      nameSV: "Lean och Six Sigma Green Belt & metodik",
+      nameEN: "Lean and Six Sigma Green Belt & Methodology",
       category: 'lean',
       isCore: true
     },

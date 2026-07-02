@@ -4,13 +4,13 @@ export const cvData: { sv: CVData; en: CVData } = {
   sv: {
     title: "Manoj John Axelsson",
     tagline: "",
-    heroTitle: "Fullstackutvecklare med  rötter i tillverkande industrin",
-    heroSubtitle: "Med över ett decennium av erfarenhet inom diverse sektorer och organisationer, där min framgång ständigt har vilat på min förmåga att snabbt förstå nya miljöer, team och hierarkier, tillämpar jag nu samma enthusiasm, analytiska skärpa och strategiska perspektiv på modern mjukvaruutveckling med hjälp av React, Node.js och TypeScript.",
-    profile: "Driven, analytisk och strategisk yrkesverksam med gedigen kompetens inom både systemutveckling och produktionsteknik, samt dokumenterad erfarenhet av Lean och Six Sigma-metodik. Under hela mitt yrkesliv har jag fokuserat på att samla in, analysera och omsätta komplex information till praktiska förbättringar och strategiska beslut. Jag trivs i mötet med människor, arbetar strukturerat och skapar förtroende genom ett professionellt och lyhört bemötande. Genom min kombinerade bakgrund inom modern systemutveckling, tillverkande industri, verksamhetsutveckling och eget företagande har jag utvecklat en stark förmåga att se helhetslösningar och förstå hur tillförlitlig data skapar reellt värde för organisationer.\n\nI mitt arbete kombinerar jag ett genuint engagemang för mina uppgifter med ett lyhört och tålmodigt förhållningssätt. Jag värdesätter god kommunikation på både svenska och engelska, och strävar alltid efter att lyssna och observera noggrant innan jag fattar beslut. Som person är jag punktlig, lojal och mån om att skapa struktur, vilket bland annat visar sig i mitt intresse för noggrann dokumentation. Jag motiveras av att driva och genomföra förbättringar, samtidigt som jag har en empatisk förståelse för verksamhetens och människors förutsättningar. När analysen kräver det har jag förmågan att fatta svåra men nödvändiga beslut på ett sakligt och tryggt sätt, vilket gör mig till en pålitlig samarbetspartner i krävande förändringsarbeten.",
+    heroTitle: "Utvecklar Bättre System",
+    heroSubtitle: "Produktionsteknik • Lean • Six Sigma • Modern Programvaruutveckling",
+    profile: "Jag hjälper organisationer att förbättra processer, minska komplexitet och bygga hållbara system genom att kombinera produktionsteknik, Lean-metodik, Six Sigma-problemlösning och medveten programvaruutveckling.\n\nGenom min bakgrund inom både industriell produktion och modern systemutveckling fokuserar jag på hur system hänger ihop. Det handlar inte om att titta på källkoden som ett isolerat konstverk, utan som en del av en större maskin – där kartläggning, rotorsaksanalys och ständiga förbättringar skapar verkligt värde.",
     coreCompetenciesTitle: "Kärnkompetenser",
     coreCompetencies: [
       "Fullstack-systemutveckling (React, Node.js, TypeScript)",
-      "Datadrivet processförbättring & Lean Six Sigma (DMAIC)",
+      "Datadriven processförbättring, Lean och Six Sigma (DMAIC)",
       "Statistisk dataanalys & affärsanalys (Excel, Minitab)",
       "Processkartläggning & digitalisering (Industri 4.0)",
       "Strategisk gästservice, CRM & kundrelationer",
@@ -39,7 +39,7 @@ export const cvData: { sv: CVData; en: CVData } = {
     otherCompetenciesTitle: "Övriga Kompetenser",
     otherCompetencies: [
       "Datadrivet förbättringsarbete",
-      "Lean Six Sigma-metodik",
+      "Lean- och Six Sigma-metodik",
       "Processanalys och kartläggning",
       "Kvalitetssäkring",
       "Dokumentation och uppföljning",
@@ -56,10 +56,10 @@ export const cvData: { sv: CVData; en: CVData } = {
         documentUrl: "/documents/lexicon-systemutveckling.pdf"
       },
       {
-        title: "Lean Six Sigma Green Belt Certification",
+        title: "Six Sigma Green Belt Certification",
         provider: "KPMG",
         period: "2024",
-        details: "Professionellt certifieringsprogram med fokus på datadrivet förbättringsarbete, rotorsaksanalys och statistisk kvalitetssäkring:\nDMAIC-projektlivscykel: driva avgränsade förbättringsprojekt under 6–12 veckor för att leverera mätbara kostnadsbesparingar (COPQ) och effektivitetsvinster.\nStatistisk analys (Analyze): hypotestester (t-test, chi-två), enkel regression samt rotorsaksanalys (Pareto, fiskbensdiagram, 5 Varför).\nProcessförbättring & styrning (Improve/Control): Kaizen-aktiviteter, 5S, standardiserat arbetssätt, felsäkring (poka-yoke) samt upprättande av styrplaner/SPC-diagram.\nLeverabler & mätetal: projektdirektiv med ROI-beräkningar, rotorsaksrapporter, pilotresultat samt uppföljning av mätetal (% minskning av cykeltid, fel eller defekter).\nData & branschtillämpning: mätsystemanalys (MSA) och datavisualisering i Excel/Minitab, tillämpbart inom industri, IT/DevOps och tjänstesektorn.",
+        details: "Professionellt certifieringsprogram fokuserat på datadriven processförbättring, rotorsaksanalys och statistisk kvalitetssäkring:\nProaktiv riskminimering och felprevention med FMEA (feleffektsanalys).\nDMAIC-projektmetodik: Driva avgränsade förbättringsprojekt under 6–12 veckor för COPQ-besparingar.\nStatistisk dataanalys (Analyze): Processduglighet, mätsystemanalys (MSA), hypotestester (t-test, chi-två) och regression i Minitab/Excel.\nDiagnostiska diagram & visualisering: Rotorsaksanalys med Pareto-diagram, fiskbensdiagram (Ishikawa) och 5 Varför.\nProcessstyrning (Control): Standardiserat arbetssätt, felsäkring (poka-yoke) samt statistisk processstyrning med styrdiagram (SPC/Shewhart) och styrplaner.",
         documentUrl: "/documents/kpmg-six-sigma.pdf"
       },
       {
@@ -145,13 +145,13 @@ export const cvData: { sv: CVData; en: CVData } = {
   en: {
     title: "Manoj John Axelsson",
     tagline: "",
-    heroTitle: "Fullstack Developer with Roots in Manufacturing Industry",
-    heroSubtitle: "10+ years across diverse roles, sectors and organisations — where the ability to quickly read new environments, teams and leadership structures has always been the key to success. Now directing that same drive, analytical mindset and holistic perspective towards modern software development with React, Node.js and TypeScript.",
-    profile: "Driven, analytical, and strategic professional with solid expertise in both software development and production engineering, along with documented competency in Lean and Six Sigma methodologies. Throughout my career, my focus has been on collecting, analyzing, and transforming complex data into actionable improvements and strategic decisions. I thrive in interpersonal environments, work in a structured manner, and build trust through a professional and responsive approach. With my combined background in modern software engineering, manufacturing, business development, and entrepreneurship, I have developed a strong ability to see holistic solutions and understand how reliable data generates real value for organizations.\n\nIn my work, I combine a genuine dedication to my responsibilities with an attentive and patient approach. I value clear communication in both Swedish and English, and always strive to listen and observe carefully before making decisions. As a person, I am punctual, loyal, and committed to maintaining order, which is reflected in my focus on thorough documentation. I am motivated by driving and implementing improvements, while maintaining an empathetic understanding of the realities faced by teams and organizations. When analysis demands it, I have the capacity to make difficult but necessary decisions in an objective and assured manner, making me a reliable partner to trust and reason with in challenging environments.",
+    heroTitle: "Engineering Better Systems",
+    heroSubtitle: "Production Engineering • Lean • Six Sigma • Modern Software Development",
+    profile: "I help organizations improve processes, reduce complexity and build sustainable systems by combining production engineering, Lean methodology, Six Sigma problem-solving and modern software development.\n\nBy combining my background in both industrial manufacturing and software architecture, I focus on how components interact. It is not about looking at code in isolation, but seeing it as part of a larger production machine – where documentation, root cause analysis, and continuous improvement are the primary drivers of real-world value.",
     coreCompetenciesTitle: "Core Competencies",
     coreCompetencies: [
       "Fullstack Software Development (React, Node.js, TypeScript)",
-      "Data-Driven Process Improvement & Lean Six Sigma (DMAIC)",
+      "Data-Driven Process Improvement, Lean and Six Sigma (DMAIC)",
       "Statistical Data Analysis & Business Intelligence (Excel, Minitab)",
       "Process Mapping & Digitalization (Industry 4.0)",
       "Strategic Guest Relations, CRM & Client Care",
@@ -180,7 +180,7 @@ export const cvData: { sv: CVData; en: CVData } = {
     otherCompetenciesTitle: "Additional Expertise",
     otherCompetencies: [
       "Data-driven Improvement",
-      "Lean Six Sigma Methodology",
+      "Lean and Six Sigma Methodology",
       "Process Analysis & Mapping",
       "Quality Assurance",
       "Documentation & Follow-up",
@@ -197,10 +197,10 @@ export const cvData: { sv: CVData; en: CVData } = {
         documentUrl: "/documents/lexicon-systemutveckling.pdf"
       },
       {
-        title: "Lean Six Sigma Green Belt Certification",
+        title: "Six Sigma Green Belt Certification",
         provider: "KPMG",
         period: "2024",
-        details: "Professional certification program focused on data-driven process improvement, root-cause analysis, and statistical quality assurance:\nDMAIC Project Lifecycle: executing scoped process-improvement projects over 6–12 weeks to deliver measurable cost savings (COPQ) and efficiency gains.\nStatistical Analysis (Analyze): hypothesis testing (t-tests, chi-square), basic regression, and root-cause analysis (Pareto, fishbone, 5 Whys).\nProcess Improvement & Control (Improve/Control): Kaizen events, 5S, standard work, mistake-proofing (poka-yoke), and establishing control plans/SPC charts to sustain gains.\nProject Deliverables & Metrics: project charters with ROI calculations, baseline reports, pilot results, and tracking metrics (% cycle time, defect, or error reduction).\nData & Industry Applications: measurement system validation (MSA) using Excel/Minitab, applicable across manufacturing, hospitality, IT/DevOps, and service sectors.",
+        details: "Professional certification program focused on data-driven process improvement, root-cause analysis, and statistical quality assurance:\nProactive risk mitigation and defect prevention via FMEA (Failure Mode and Effects Analysis).\nDMAIC Project Lifecycle: Executing scoped improvement projects (6–12 weeks) to deliver measurable COPQ savings.\nStatistical Data Analysis (Analyze): Process capability index, measurement system analysis (MSA), hypothesis testing (t-tests, chi-square), and regression in Minitab/Excel.\nDiagnostic Charts & Mapping: Root-cause troubleshooting via Pareto charts, fishbone (Ishikawa) diagrams, and 5 Whys.\nControl & Standardisation: Standard work development, mistake-proofing (poka-yoke), and statistical process control (SPC/Shewhart charts) with control plans.",
         documentUrl: "/documents/kpmg-six-sigma.pdf"
       },
       {
