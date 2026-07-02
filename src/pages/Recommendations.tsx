@@ -359,7 +359,8 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
         }
 
         .testimonial-text {
-          font-style: italic;
+          font-style: normal;
+          font-weight: 500;
           font-size: 1.05rem;
           line-height: 1.6;
           color: var(--text-primary);
