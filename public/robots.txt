@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://manojaxelsson.com/sitemap.xml
+Sitemap: https://manojaxelsson.se/sitemap.xml
