@@ -88,7 +88,44 @@ const TestimonialCard: React.FC<{ item: RecommendationItem; lang: 'sv' | 'en' }>
   );
 };
 
+const CATEGORIES = {
+  sv: [
+    { id: 'all', label: 'Alla' },
+    { id: 'client', label: 'Kunder' },
+    { id: 'colleague', label: 'Kollegor' },
+    { id: 'academic', label: 'Utbildning & Mentorer' },
+    { id: 'verified', label: 'LinkedIn Verifierade' }
+  ],
+  en: [
+    { id: 'all', label: 'All' },
+    { id: 'client', label: 'Clients' },
+    { id: 'colleague', label: 'Colleagues' },
+    { id: 'academic', label: 'Academic & Mentors' },
+    { id: 'verified', label: 'LinkedIn Verified' }
+  ]
+};
+
 export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  const filteredRecommendations = (data.recommendations || []).filter(item => {
+    if (selectedCategory === 'all') return true;
+    if (selectedCategory === 'verified') return item.isLinkedInVerified;
+    
+    const rel = (item.relation || '').toLowerCase();
+    
+    if (selectedCategory === 'client') {
+      return rel.includes('client') || rel.includes('kund');
+    }
+    if (selectedCategory === 'colleague') {
+      return rel.includes('co-worker') || rel.includes('medarbetare') || rel.includes('colleague');
+    }
+    if (selectedCategory === 'academic') {
+      return rel.includes('teacher') || rel.includes('lärare') || rel.includes('studied') || rel.includes('studerade') || rel.includes('instructor');
+    }
+    return true;
+  });
+
   // Web3Forms Access Key configuration (managed via Vercel env variables)
   const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
 
@@ -181,17 +218,40 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
     }
   };
 
+  const categories = CATEGORIES[lang];
+
   return (
     <div className="recommendations-page fade-in">
       {/* Title */}
       <h2 className="section-title">{data.recommendationsTitle}</h2>
 
+      {/* Category Filter Badges */}
+      <div className="recommendation-filters">
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            className={`badge ${selectedCategory === cat.id ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(cat.id)}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
       {/* Grid of testimonials */}
       <div className="recommendations-grid">
-        {data.recommendations && data.recommendations.map((item, idx) => (
+        {filteredRecommendations.map((item, idx) => (
           <TestimonialCard key={idx} item={item} lang={lang} />
         ))}
       </div>
+
+      {filteredRecommendations.length === 0 && (
+        <div className="no-recommendations">
+          {lang === 'sv' 
+            ? 'Inga rekommendationer matchar det valda filtret.' 
+            : 'No recommendations match the selected filter.'}
+        </div>
+      )}
 
       {/* Submission Form Section */}
       <section className="card submission-section">
@@ -333,7 +393,26 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
         )}
       </section>
 
-      <style>{`
+       <style>{`
+        .recommendation-filters {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          margin-bottom: 2rem;
+          justify-content: flex-start;
+        }
+
+        .no-recommendations {
+          text-align: center;
+          color: var(--text-secondary);
+          font-style: italic;
+          padding: 2rem;
+          background-color: var(--card-bg);
+          border: 1.5px dashed var(--border-color);
+          border-radius: 4px;
+          margin-bottom: 3rem;
+        }
+
         .recommendations-grid {
           display: grid;
           grid-template-columns: 1fr;

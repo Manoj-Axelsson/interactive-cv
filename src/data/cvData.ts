@@ -146,7 +146,7 @@ export const cvData: { sv: CVData; en: CVData } = {
         text: "Jag var en av Manojs lärare på Yrkeshögskolan. Han är en flitig problemlösare som anstränger sig för att göra goda resultat. Om jag behövde en sådan skulle jag anställa honom.",
         date: "2026",
         isLinkedInVerified: true,
-        linkedinUrl: "https://www.linkedin.com/in/larseriklindstrom/"
+        linkedinUrl: "https://www.linkedin.com/in/manoj-axelsson/details/recommendations/"
       }
     ],
     contactTitle: "Kontaktuppgifter",
@@ -308,7 +308,7 @@ export const cvData: { sv: CVData; en: CVData } = {
         nativeLanguage: "sv",
         date: "2026",
         isLinkedInVerified: true,
-        linkedinUrl: "https://www.linkedin.com/in/larseriklindstrom/"
+        linkedinUrl: "https://www.linkedin.com/in/manoj-axelsson/details/recommendations/"
       }
     ],
     contactTitle: "Contact Information",
