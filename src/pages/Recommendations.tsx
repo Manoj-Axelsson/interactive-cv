@@ -162,13 +162,11 @@ const RevolvingDoor3D: React.FC<{ items: RecommendationItem[]; lang: 'sv' | 'en'
 
   if (items.length === 0) return null;
 
-  // Single item display
+  // Single item display (render in normal document flow to prevent height clipping/overlap)
   if (items.length === 1) {
     return (
-      <div className="revolving-door-container single-item">
-        <div className="revolving-slide active">
-          <TestimonialCard item={items[0]} lang={lang} />
-        </div>
+      <div className="single-testimonial-wrapper">
+        <TestimonialCard item={items[0]} lang={lang} />
       </div>
     );
   }
@@ -673,13 +671,28 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
           transform: scale(1.25);
         }
 
+        /* Single Testimonial Wrapper */
+        .single-testimonial-wrapper {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          margin-bottom: 4rem;
+        }
+
+        .single-testimonial-wrapper .testimonial-card {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 0;
+          box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
         /* 3D Revolving Door Carousel Styles */
         .revolving-door-container {
           position: relative;
           display: flex;
           align-items: center;
           width: 100%;
-          height: 380px;
+          height: 480px;
           margin-bottom: 4rem;
           perspective: 1200px;
           gap: 0.8rem;
@@ -687,7 +700,7 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
 
         @media (max-width: 600px) {
           .revolving-door-container {
-            height: 440px;
+            height: 560px;
           }
         }
 
