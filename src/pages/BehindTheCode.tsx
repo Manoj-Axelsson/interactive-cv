@@ -9,7 +9,7 @@ interface BehindTheCodeProps {
 export const BehindTheCode: React.FC<BehindTheCodeProps> = ({ lang }) => {
   const sections = lang === 'sv' ? [
     {
-      title: 'Från Himalaya till Norrland',
+      title: 'Himalayas & polartraktens under',
       icon: '🏔️',
       image: '/images/polar_himalaya.png',
       alt: 'En stämningsfull bild som visar snötäckt vildmark i svenska Norrland under ett svagt norrsken som möter avlägsna bergstoppar i skymningen.',
@@ -48,7 +48,7 @@ export const BehindTheCode: React.FC<BehindTheCodeProps> = ({ lang }) => {
     }
   ] : [
     {
-      title: 'Himalayan & Polar Nature',
+      title: 'Himalayan & Polar Wonders',
       icon: '🏔️',
       image: '/images/polar_himalaya.png',
       alt: 'An atmospheric image displaying snow-covered Swedish Norrland wilderness under a green northern lights sky, merging with distant mountain peaks at twilight.',
