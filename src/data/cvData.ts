@@ -109,6 +109,18 @@ export const cvData: { sv: CVData; en: CVData } = {
     recommendationsTitle: "Rekommendationer",
     recommendations: [
       {
+        name: "Morgan Nordberg",
+        role: "Student vid Linköpings universitet",
+        relation: "Tidigare chef (arrangör för GameJam)",
+        country: "Sverige",
+        text: "Manoj har bidragit med en positiv atmosfär och visat stort engagemang och entusiasm både som frekvent deltagare och som volontärarbetande arrangör vid flera av de GameJams som anordnats av LiTHe kod, under tiden då jag var ansvarig för att organisera evenemangen.",
+        originalText: "Manoj has contributed with a positive atmosphere, and shown great enthusiasm & engagement both as a frequent participant and as a volunteer organizer at several of the GameJams by LiTHe kod, while I was responsible for organizing the events.",
+        nativeLanguage: "en",
+        date: "2026",
+        isLinkedInVerified: true,
+        linkedinUrl: "https://www.linkedin.com/in/morgan-nordberg-31457522b/"
+      },
+      {
         name: "Isac Lindh",
         role: "Developer | UX designer",
         relation: "Studerade tillsammans",
@@ -271,6 +283,16 @@ export const cvData: { sv: CVData; en: CVData } = {
     references: "References will be provided on request.",
     recommendationsTitle: "Recommendations",
     recommendations: [
+      {
+        name: "Morgan Nordberg",
+        role: "Student at Linköping University",
+        relation: "Former Manager (GameJam Organizer)",
+        country: "Sweden",
+        text: "Manoj has contributed with a positive atmosphere, and shown great enthusiasm & engagement both as a frequent participant and as a volunteer organizer at several of the GameJams by LiTHe kod, while I was responsible for organizing the events.",
+        date: "2026",
+        isLinkedInVerified: true,
+        linkedinUrl: "https://www.linkedin.com/in/morgan-nordberg-31457522b/"
+      },
       {
         name: "Isac Lindh",
         role: "Developer | UX designer",
