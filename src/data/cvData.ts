@@ -137,6 +137,16 @@ export const cvData: { sv: CVData; en: CVData } = {
         nativeLanguage: "en",
         date: "2026",
         isLinkedInVerified: false
+      },
+      {
+        name: "Lars-Erik Lindström",
+        role: "Säljare av IT-managementtjänster, mjukvaror",
+        relation: "Lärare - Yrkeshögskolan",
+        country: "Sverige",
+        text: "Jag var en av Manojs lärare på Yrkeshögskolan. Han är en flitig problemlösare som anstränger sig för att göra goda resultat. Om jag behövde en sådan skulle jag anställa honom.",
+        date: "2026",
+        isLinkedInVerified: true,
+        linkedinUrl: "https://www.linkedin.com/in/larseriklindstrom/"
       }
     ],
     contactTitle: "Kontaktuppgifter",
@@ -287,6 +297,18 @@ export const cvData: { sv: CVData; en: CVData } = {
         text: "I had the pleasure of being a customer of Manoj, and I can confidently say he is one of those rare professionals who leaves a lasting impression. His genuine smile, positive energy, and welcoming attitude make every interaction enjoyable, but what truly sets him apart is his remarkable intelligence and ability to understand exactly what people need.\n\nManoj combines professionalism with authenticity, creating an experience that feels both effortless and personal. He consistently goes above and beyond, and his passion for excellence is evident in everything he does. I highly recommend Manoj to anyone looking for someone who is knowledgeable, trustworthy, and an absolute pleasure to work with.",
         date: "2026",
         isLinkedInVerified: false
+      },
+      {
+        name: "Lars-Erik Lindström",
+        role: "IT Management & Software Sales Representative",
+        relation: "Teacher - Higher Vocational Education",
+        country: "Sweden",
+        text: "I was one of Manoj's teachers at the Higher Vocational Education. He is a diligent problem solver who strives to achieve great results. If I needed such a person, I would hire him.",
+        originalText: "Jag var en av Manojs lärare på Yrkeshögskolan. Han är en flitig problemlösare som anstränger sig för att göra goda resultat. Om jag behövde en sådan skulle jag anställa honom.",
+        nativeLanguage: "sv",
+        date: "2026",
+        isLinkedInVerified: true,
+        linkedinUrl: "https://www.linkedin.com/in/larseriklindstrom/"
       }
     ],
     contactTitle: "Contact Information",
