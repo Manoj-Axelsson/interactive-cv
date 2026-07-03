@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { CVData, RecommendationItem } from '../types/cv';
-import { MessageSquare, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { MessageSquare, Send, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface RecommendationsProps {
   data: CVData;
@@ -84,6 +84,181 @@ const TestimonialCard: React.FC<{ item: RecommendationItem; lang: 'sv' | 'en' }>
           </a>
         )}
       </div>
+    </div>
+  );
+};
+
+const StandardCarousel: React.FC<{ items: RecommendationItem[]; lang: 'sv' | 'en' }> = ({ items, lang }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+  };
+
+  if (items.length === 0) return null;
+
+  return (
+    <div className="standard-carousel-container">
+      <button 
+        type="button" 
+        className="carousel-control-btn prev-btn" 
+        onClick={handlePrev}
+        aria-label={lang === 'sv' ? 'Föregående' : 'Previous'}
+      >
+        <ChevronLeft size={24} />
+      </button>
+
+      <div className="carousel-window">
+        <div 
+          className="carousel-track" 
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {items.map((item, idx) => (
+            <div key={idx} className="carousel-slide">
+              <TestimonialCard item={item} lang={lang} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button 
+        type="button" 
+        className="carousel-control-btn next-btn" 
+        onClick={handleNext}
+        aria-label={lang === 'sv' ? 'Nästa' : 'Next'}
+      >
+        <ChevronRight size={24} />
+      </button>
+
+      <div className="carousel-indicators">
+        {items.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            className={`indicator-dot ${currentIndex === idx ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const RevolvingDoor3D: React.FC<{ items: RecommendationItem[]; lang: 'sv' | 'en' }> = ({ items, lang }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+  };
+
+  if (items.length === 0) return null;
+
+  // Single item display
+  if (items.length === 1) {
+    return (
+      <div className="revolving-door-container single-item">
+        <div className="revolving-slide active">
+          <TestimonialCard item={items[0]} lang={lang} />
+        </div>
+      </div>
+    );
+  }
+
+  // Two items display
+  if (items.length === 2) {
+    return (
+      <div className="revolving-door-container two-items">
+        <button 
+          type="button" 
+          className="carousel-control-btn prev-btn" 
+          onClick={handlePrev}
+          aria-label={lang === 'sv' ? 'Föregående' : 'Previous'}
+        >
+          <ChevronLeft size={24} />
+        </button>
+
+        <div className="revolving-door-track">
+          {items.map((item, idx) => {
+            const isActive = currentIndex === idx;
+            const positionClass = isActive ? 'active' : (currentIndex === 0 ? 'next' : 'prev');
+            return (
+              <div 
+                key={idx} 
+                className={`revolving-slide ${positionClass}`}
+                onClick={() => !isActive && setCurrentIndex(idx)}
+              >
+                <TestimonialCard item={item} lang={lang} />
+              </div>
+            );
+          })}
+        </div>
+
+        <button 
+          type="button" 
+          className="carousel-control-btn next-btn" 
+          onClick={handleNext}
+          aria-label={lang === 'sv' ? 'Nästa' : 'Next'}
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
+    );
+  }
+
+  // Three or more items (revolving door cover flow)
+  return (
+    <div className="revolving-door-container">
+      <button 
+        type="button" 
+        className="carousel-control-btn prev-btn" 
+        onClick={handlePrev}
+        aria-label={lang === 'sv' ? 'Föregående' : 'Previous'}
+      >
+        <ChevronLeft size={24} />
+      </button>
+
+      <div className="revolving-door-track">
+        {items.map((item, idx) => {
+          let positionClass = 'hidden';
+          if (idx === currentIndex) {
+            positionClass = 'active';
+          } else if (idx === (currentIndex - 1 + items.length) % items.length) {
+            positionClass = 'prev';
+          } else if (idx === (currentIndex + 1) % items.length) {
+            positionClass = 'next';
+          }
+
+          const isClickable = positionClass === 'prev' || positionClass === 'next';
+
+          return (
+            <div 
+              key={idx} 
+              className={`revolving-slide ${positionClass}`}
+              onClick={() => isClickable && setCurrentIndex(idx)}
+            >
+              <TestimonialCard item={item} lang={lang} />
+            </div>
+          );
+        })}
+      </div>
+
+      <button 
+        type="button" 
+        className="carousel-control-btn next-btn" 
+        onClick={handleNext}
+        aria-label={lang === 'sv' ? 'Nästa' : 'Next'}
+      >
+        <ChevronRight size={24} />
+      </button>
     </div>
   );
 };
@@ -238,12 +413,12 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
         ))}
       </div>
 
-      {/* Grid of testimonials */}
-      <div className="recommendations-grid">
-        {filteredRecommendations.map((item, idx) => (
-          <TestimonialCard key={idx} item={item} lang={lang} />
-        ))}
-      </div>
+      {/* Carousel or 3D Revolving Door */}
+      {selectedCategory === 'all' ? (
+        <StandardCarousel items={filteredRecommendations} lang={lang} />
+      ) : (
+        <RevolvingDoor3D items={filteredRecommendations} lang={lang} />
+      )}
 
       {filteredRecommendations.length === 0 && (
         <div className="no-recommendations">
@@ -413,11 +588,181 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
           margin-bottom: 3rem;
         }
 
+        /* Standard Carousel Styles */
+        .standard-carousel-container {
+          display: flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          margin-bottom: 4rem;
+          gap: 0.8rem;
+        }
+
+        .carousel-window {
+          overflow: hidden;
+          width: 100%;
+          border-radius: 4px;
+        }
+
+        .carousel-track {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+          width: 100%;
+        }
+
+        .carousel-slide {
+          min-width: 100%;
+          flex-shrink: 0;
+          box-sizing: border-box;
+          padding: 0 0.5rem;
+          display: flex;
+          justify-content: center;
+        }
+
+        .carousel-slide .testimonial-card {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 0;
+        }
+
+        .carousel-control-btn {
+          background-color: var(--highlight-color);
+          border: 1px solid var(--border-color);
+          color: var(--accent-gold);
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          flex-shrink: 0;
+          z-index: 10;
+        }
+
+        .carousel-control-btn:hover {
+          background-color: var(--accent-gold-muted);
+          border-color: var(--accent-gold);
+          color: var(--accent-gold-hover);
+          transform: scale(1.05);
+        }
+
+        .carousel-indicators {
+          position: absolute;
+          bottom: -2.25rem;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 0.5rem;
+        }
+
+        .indicator-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          border: none;
+          background-color: var(--border-color);
+          cursor: pointer;
+          padding: 0;
+          transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+          background-color: var(--accent-gold);
+          transform: scale(1.25);
+        }
+
+        /* 3D Revolving Door Carousel Styles */
+        .revolving-door-container {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 380px;
+          margin-bottom: 4rem;
+          perspective: 1200px;
+          gap: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+          .revolving-door-container {
+            height: 440px;
+          }
+        }
+
+        .revolving-door-track {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+        }
+
+        .revolving-slide {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, z-index 0.6s ease;
+          transform-style: preserve-3d;
+        }
+
+        .revolving-slide .testimonial-card {
+          width: 100%;
+          max-width: 550px;
+          margin-bottom: 0;
+          box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        /* 3D Positions */
+        .revolving-slide.active {
+          transform: translate3d(0, 0, 0) rotateY(0deg) scale(1);
+          z-index: 10;
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .revolving-slide.prev {
+          transform: translate3d(-140px, 0, -180px) rotateY(32deg) scale(0.9);
+          z-index: 5;
+          opacity: 0.45;
+          pointer-events: auto;
+          cursor: pointer;
+        }
+
+        .revolving-slide.next {
+          transform: translate3d(140px, 0, -180px) rotateY(-32deg) scale(0.9);
+          z-index: 5;
+          opacity: 0.45;
+          pointer-events: auto;
+          cursor: pointer;
+        }
+
+        .revolving-slide.hidden {
+          transform: translate3d(0, 0, -300px) scale(0.8);
+          z-index: 1;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        /* Responsive 3D offsets for mobile */
+        @media (max-width: 768px) {
+          .revolving-slide.prev {
+            transform: translate3d(-60px, 0, -140px) rotateY(25deg) scale(0.85);
+            opacity: 0.3;
+          }
+          .revolving-slide.next {
+            transform: translate3d(60px, 0, -140px) rotateY(-25deg) scale(0.85);
+            opacity: 0.3;
+          }
+        }
+
         .recommendations-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-          margin-bottom: 3rem;
+          display: none;
         }
 
         @media (min-width: 768px) {
