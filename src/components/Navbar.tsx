@@ -2,8 +2,8 @@ import React from 'react';
 import { Sun, Moon, Globe, Download } from 'lucide-react';
 
 interface NavbarProps {
-  currentTab: 'about' | 'experience' | 'recommendations' | 'contact';
-  setTab: (tab: 'about' | 'experience' | 'recommendations' | 'contact') => void;
+  currentTab: 'about' | 'experience' | 'recommendations' | 'contact' | 'behind-the-code';
+  setTab: (tab: 'about' | 'experience' | 'recommendations' | 'contact' | 'behind-the-code') => void;
   lang: 'sv' | 'en';
   setLang: (lang: 'sv' | 'en') => void;
   theme: 'dark' | 'light';
@@ -13,6 +13,7 @@ interface NavbarProps {
     experience: string;
     recommendations: string;
     contact: string;
+    behindTheCode: string;
   };
 }
 
@@ -34,28 +35,54 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
       <header className="navbar-header">
-        <nav className="nav-container">
+        <nav className="nav-container" aria-label={lang === 'sv' ? 'Huvudnavigering' : 'Main Navigation'}>
           {/* Nav Tabs */}
-          <div className="nav-links">
+          <div className="nav-links" role="tablist" aria-label={lang === 'sv' ? 'Sektioner' : 'Sections'}>
             <button
+                role="tab"
+                aria-selected={currentTab === 'about'}
+                aria-controls="about-panel"
+                id="tab-about"
                 className={`nav-tab ${currentTab === 'about' ? 'active' : ''}`}
                 onClick={() => setTab('about')}
             >
               {tabNames.about}
             </button>
             <button
+                role="tab"
+                aria-selected={currentTab === 'experience'}
+                aria-controls="experience-panel"
+                id="tab-experience"
                 className={`nav-tab ${currentTab === 'experience' ? 'active' : ''}`}
                 onClick={() => setTab('experience')}
             >
               {tabNames.experience}
             </button>
             <button
+                role="tab"
+                aria-selected={currentTab === 'recommendations'}
+                aria-controls="recommendations-panel"
+                id="tab-recommendations"
                 className={`nav-tab ${currentTab === 'recommendations' ? 'active' : ''}`}
                 onClick={() => setTab('recommendations')}
             >
               {tabNames.recommendations}
             </button>
             <button
+                role="tab"
+                aria-selected={currentTab === 'behind-the-code'}
+                aria-controls="behind-the-code-panel"
+                id="tab-behind-the-code"
+                className={`nav-tab ${currentTab === 'behind-the-code' ? 'active' : ''}`}
+                onClick={() => setTab('behind-the-code')}
+            >
+              {tabNames.behindTheCode}
+            </button>
+            <button
+                role="tab"
+                aria-selected={currentTab === 'contact'}
+                aria-controls="contact-panel"
+                id="tab-contact"
                 className={`nav-tab ${currentTab === 'contact' ? 'active' : ''}`}
                 onClick={() => setTab('contact')}
             >
@@ -70,8 +97,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="control-btn pdf-btn"
                 onClick={handleDownloadPDF}
                 title={lang === 'sv' ? 'Ladda ner CV' : 'Download CV'}
+                aria-label={lang === 'sv' ? 'Ladda ner mitt CV i PDF-format' : 'Download my CV as a PDF file'}
             >
-              <Download size={16} />
+              <Download size={16} aria-hidden="true" />
               <span className="lang-label">CV</span>
             </button>
 
@@ -80,8 +108,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="control-btn lang-toggle"
                 onClick={() => setLang(lang === 'sv' ? 'en' : 'sv')}
                 title={lang === 'sv' ? 'Switch to English' : 'Byt till Svenska'}
+                aria-label={lang === 'sv' ? 'Ändra språk till engelska' : 'Change language to Swedish'}
             >
-              <Globe size={16} />
+              <Globe size={16} aria-hidden="true" />
               <span className="lang-label">{lang.toUpperCase()}</span>
             </button>
 
@@ -90,8 +119,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="control-btn theme-toggle"
                 onClick={toggleTheme}
                 title={theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+                aria-label={theme === 'light' ? 'Aktivera mörkt tema' : 'Aktivera ljust tema'}
             >
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+              {theme === 'light' ? <Moon size={18} aria-hidden="true" /> : <Sun size={18} aria-hidden="true" />}
             </button>
           </div>
         </nav>

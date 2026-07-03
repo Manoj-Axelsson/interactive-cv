@@ -160,6 +160,7 @@ export const cvData: { sv: CVData; en: CVData } = {
       about: "Om Mig",
       experience: "Erfarenhet",
       recommendations: "Referenser",
+      behindTheCode: "Bakom koden",
       contact: "Kontakt"
     }
   },
@@ -322,6 +323,7 @@ export const cvData: { sv: CVData; en: CVData } = {
       about: "About Me",
       experience: "Experience",
       recommendations: "Recommendations",
+      behindTheCode: "Behind the Code",
       contact: "Contact"
     }
   }

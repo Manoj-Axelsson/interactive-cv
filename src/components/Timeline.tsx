@@ -119,22 +119,34 @@ export const Timeline: React.FC<TimelineProps> = ({
   });
 
   return (
-    <div className="timeline-component">
+    <div className="timeline-component" id="experience-panel" role="tabpanel" aria-labelledby="tab-experience">
       {/* Filters */}
-      <div className="timeline-filters">
+      <div className="timeline-filters" role="tablist" aria-label={lang === 'sv' ? 'Filtrera tidslinje' : 'Filter timeline'}>
         <button
+          role="tab"
+          aria-selected={filter === 'all'}
+          aria-controls="timeline-items"
+          id="filter-all"
           className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
           onClick={() => handleFilterChange('all')}
         >
           {lang === 'sv' ? 'Visa Alla' : 'Show All'}
         </button>
         <button
+          role="tab"
+          aria-selected={filter === 'work'}
+          aria-controls="timeline-items"
+          id="filter-work"
           className={`filter-btn ${filter === 'work' ? 'active' : ''}`}
           onClick={() => handleFilterChange('work')}
         >
           {lang === 'sv' ? 'Yrkeserfarenhet' : 'Work Experience'}
         </button>
         <button
+          role="tab"
+          aria-selected={filter === 'education'}
+          aria-controls="timeline-items"
+          id="filter-education"
           className={`filter-btn ${filter === 'education' ? 'active' : ''}`}
           onClick={() => handleFilterChange('education')}
         >
@@ -143,7 +155,7 @@ export const Timeline: React.FC<TimelineProps> = ({
       </div>
 
       {/* Timeline Path */}
-      <div className="timeline-path">
+      <div className="timeline-path" id="timeline-items" aria-live="polite">
         {filteredItems.map((item) => {
           const isExpanded = expandedItems[item.id] !== false; // expanded by default for readability, or collapsed?
           // Suppress details completely in the "Visa Alla / Show All" view to prevent cognitive overload
@@ -154,7 +166,7 @@ export const Timeline: React.FC<TimelineProps> = ({
               {/* Icon Marker */}
               <div className="timeline-marker">
                 <div className={`marker-icon-wrapper ${item.type}`}>
-                  {item.type === 'work' ? <Briefcase size={16} /> : <GraduationCap size={16} />}
+                  {item.type === 'work' ? <Briefcase size={16} aria-hidden="true" /> : <GraduationCap size={16} aria-hidden="true" />}
                 </div>
               </div>
 
@@ -163,27 +175,41 @@ export const Timeline: React.FC<TimelineProps> = ({
                 <div 
                   className="timeline-card-header" 
                   onClick={() => hasDetails && toggleExpand(item.id)}
+                  onKeyDown={(e) => {
+                    if (hasDetails && (e.key === 'Enter' || e.key === ' ')) {
+                      e.preventDefault();
+                      toggleExpand(item.id);
+                    }
+                  }}
                   style={{ cursor: hasDetails ? 'pointer' : 'default' }}
+                  tabIndex={hasDetails ? 0 : -1}
+                  role={hasDetails ? 'button' : undefined}
+                  aria-expanded={hasDetails ? isExpanded : undefined}
+                  aria-controls={hasDetails ? `timeline-body-${item.id}` : undefined}
                 >
                   <div className="title-section">
                     <span className="timeline-period">{item.period}</span>
-                    <h3 className="timeline-item-title">{item.title}</h3>
+                    <h3 className="timeline-item-title" id={`timeline-title-${item.id}`}>{item.title}</h3>
                     <h4 className="timeline-item-subtitle">{item.subtitle}</h4>
                   </div>
                   {hasDetails && (
-                    <button className="expand-toggle-btn" aria-label="Toggle details">
-                      {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    <button 
+                      className="expand-toggle-btn" 
+                      aria-label={isExpanded ? (lang === 'sv' ? 'Dölj detaljer' : 'Hide details') : (lang === 'sv' ? 'Visa detaljer' : 'Show details')}
+                      tabIndex={-1} // The header div is already focusable
+                    >
+                      {isExpanded ? <ChevronUp size={20} aria-hidden="true" /> : <ChevronDown size={20} aria-hidden="true" />}
                     </button>
                   )}
                 </div>
 
                 {/* Details Section */}
                 {hasDetails && isExpanded && (
-                  <div className="timeline-card-body">
+                  <div className="timeline-card-body" id={`timeline-body-${item.id}`} role="region" aria-labelledby={`timeline-title-${item.id}`}>
                     {item.content.map((point, pIndex) => (
                       <p key={pIndex} className="timeline-text-point">
                         {(item.content.length > 1 || (item.type === 'work' && item.id !== 'leadership')) && !(pIndex === 0 && point.trim().endsWith(':')) ? (
-                          <span className="bullet-marker">•</span>
+                          <span className="bullet-marker" aria-hidden="true">•</span>
                         ) : null}
                         {point}
                       </p>
@@ -198,8 +224,9 @@ export const Timeline: React.FC<TimelineProps> = ({
                             }
                           }}
                           className="btn-document"
+                          aria-label={lang === 'sv' ? `Visa betyg eller intyg för ${item.title}` : `View certificate or diploma for ${item.title}`}
                         >
-                          <FileText size={16} />
+                          <FileText size={16} aria-hidden="true" />
                           {lang === 'sv' ? 'Visa Examensbevis / Intyg' : 'View Certificate / Diploma'}
                         </button>
                       </div>

@@ -394,15 +394,19 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
   const categories = CATEGORIES[lang];
 
   return (
-    <div className="recommendations-page fade-in">
+    <div className="recommendations-page fade-in" id="recommendations-panel" role="tabpanel" aria-labelledby="tab-recommendations">
       {/* Title */}
       <h2 className="section-title">{data.recommendationsTitle}</h2>
 
       {/* Category Filter Badges */}
-      <div className="recommendation-filters">
+      <div className="recommendation-filters" role="tablist" aria-label={lang === 'sv' ? 'Kategorier för rekommendationer' : 'Recommendation categories'}>
         {categories.map((cat) => (
           <button
             key={cat.id}
+            role="tab"
+            aria-selected={selectedCategory === cat.id}
+            aria-controls="recommendations-display"
+            id={`filter-tab-${cat.id}`}
             className={`badge ${selectedCategory === cat.id ? 'active' : ''}`}
             onClick={() => setSelectedCategory(cat.id)}
           >
@@ -412,11 +416,13 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
       </div>
 
       {/* Carousel or 3D Revolving Door */}
-      {selectedCategory === 'all' ? (
-        <StandardCarousel items={filteredRecommendations} lang={lang} />
-      ) : (
-        <RevolvingDoor3D items={filteredRecommendations} lang={lang} />
-      )}
+      <div id="recommendations-display" aria-live="polite" style={{ width: '100%' }}>
+        {selectedCategory === 'all' ? (
+          <StandardCarousel items={filteredRecommendations} lang={lang} />
+        ) : (
+          <RevolvingDoor3D items={filteredRecommendations} lang={lang} />
+        )}
+      </div>
 
       {filteredRecommendations.length === 0 && (
         <div className="no-recommendations">

@@ -319,3 +319,14 @@ main.content-area {
   }
 }
 
+/* Accessibility Focus Outlines */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-gold) !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 10px var(--accent-gold-muted) !important;
+}
+

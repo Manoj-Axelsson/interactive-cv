@@ -53,6 +53,7 @@ export interface CVData {
     about: string;
     experience: string;
     recommendations: string;
+    behindTheCode: string;
     contact: string;
   };
 }
