@@ -43,7 +43,7 @@ export const BehindTheCode: React.FC<BehindTheCodeProps> = ({ lang }) => {
       title: 'Trogna vänner & schack',
       icon: '🐾',
       image: '/images/loyal_companions.png',
-      alt: 'En mysig digital illustration som visar två hundar och tre katter som vilar fridfullt tillsammans i ett solbelyst vardagsrum.',
+      alt: 'Ett stämningsfullt fotografi från en balkong där en fluffig orange-maskad Ragdoll, en långhårig svart katt och en orange Orientalisk katt vilar på ett klösträd, och två små hundar ligger på en soffa.',
       text: 'Hemma fylls vardagen av värme tack vare mina hundar Troy och Tiny, och katterna Gotti, Lyckan och Camilo som bjuder på bus och sällskap. För att hålla sinnet skarpt spelar jag gärna schack med vänner eller online på mobilen, och kopplar av med en bra film, dokumentärer eller fotboll.'
     }
   ] : [
@@ -72,7 +72,7 @@ export const BehindTheCode: React.FC<BehindTheCodeProps> = ({ lang }) => {
       title: 'Companions & Strategy',
       icon: '🐾',
       image: '/images/loyal_companions.png',
-      alt: 'A cozy digital illustration showing two dogs and three cats resting peacefully together in a sunlit living room.',
+      alt: 'An atmospheric photograph of a sunny balcony with a fluffy orange-pointed Ragdoll, a long-haired black cat, and an orange Oriental cat resting on a cat tree, alongside two small dogs lounging on an outdoor couch.',
       text: 'My home life is grounded by my loyal dogs, Troy and Tiny, and my three playful cats, Gotti, Lyckan, and Camilo. To keep my analytical mind sharp, I enjoy playing chess—either over a board with friends or online on my phone. I relax by watching football matches, deep documentaries, and films.'
     }
   ];

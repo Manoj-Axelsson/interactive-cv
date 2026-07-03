@@ -169,15 +169,22 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         .nav-links {
           display: flex;
-          gap: 1.2rem;
+          gap: 0.8rem;
           justify-content: center;
           flex-wrap: wrap;
         }
 
-        @media (min-width: 600px) {
+        @media (min-width: 768px) {
           .nav-links {
-            gap: 2rem;
+            gap: 1.1rem;
             justify-content: flex-start;
+            flex-wrap: nowrap;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .nav-links {
+            gap: 1.6rem;
           }
         }
 
@@ -185,17 +192,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           background: none;
           border: none;
           color: var(--text-secondary);
-          font-size: 0.95rem;
+          font-size: 0.85rem;
           text-transform: uppercase;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.08em;
           padding: 0.3rem 0;
           border-bottom: 1.5px solid transparent;
           transition: all 0.3s ease;
         }
 
-        @media (min-width: 600px) {
+        @media (min-width: 768px) {
           .nav-tab {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
           }
         }
 
