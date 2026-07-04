@@ -1,13 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { cvData } from './data/cvData';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Experience from './pages/Experience';
-import Contact from './pages/Contact';
-import Recommendations from './pages/Recommendations';
-import BehindTheCode from './pages/BehindTheCode';
 import { inject, track } from '@vercel/analytics';
+
+// Lazy load page-level tab components for code splitting (increases Core Web Vitals score)
+const Home = lazy(() => import('./pages/Home'));
+const Experience = lazy(() => import('./pages/Experience'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Recommendations = lazy(() => import('./pages/Recommendations'));
+const BehindTheCode = lazy(() => import('./pages/BehindTheCode'));
 
 // Initialize Vercel Web Analytics
 inject();
@@ -90,21 +92,27 @@ function App() {
 
       {/* Main Page Area */}
       <main className="content-area">
-        {tab === 'about' && (
-          <Home data={currentCV} lang={lang} />
-        )}
-        {tab === 'experience' && (
-          <Experience data={currentCV} lang={lang} />
-        )}
-        {tab === 'recommendations' && (
-          <Recommendations data={currentCV} lang={lang} />
-        )}
-        {tab === 'behind-the-code' && (
-          <BehindTheCode data={currentCV} lang={lang} />
-        )}
-        {tab === 'contact' && (
-          <Contact data={currentCV} lang={lang} />
-        )}
+        <Suspense fallback={
+          <div className="lazy-loading-spinner" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '3rem', color: 'var(--accent-gold)' }}>
+            <span style={{ fontSize: '1.25rem', fontFamily: 'EB Garamond, serif', letterSpacing: '0.05em' }}>Laddar... / Loading...</span>
+          </div>
+        }>
+          {tab === 'about' && (
+            <Home data={currentCV} lang={lang} />
+          )}
+          {tab === 'experience' && (
+            <Experience data={currentCV} lang={lang} />
+          )}
+          {tab === 'recommendations' && (
+            <Recommendations data={currentCV} lang={lang} />
+          )}
+          {tab === 'behind-the-code' && (
+            <BehindTheCode data={currentCV} lang={lang} />
+          )}
+          {tab === 'contact' && (
+            <Contact data={currentCV} lang={lang} />
+          )}
+        </Suspense>
       </main>
 
       {/* Footer */}
