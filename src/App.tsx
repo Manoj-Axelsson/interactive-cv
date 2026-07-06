@@ -14,7 +14,13 @@ inject();
 
 function App() {
   const [tab, setTab] = useState<'about' | 'experience' | 'recommendations' | 'contact' | 'behind-the-code'>('about');
-  const [lang, setLang] = useState<'sv' | 'en'>('sv');
+  const [lang, setLang] = useState<'sv' | 'en'>(() => {
+    // Check URL parameters for language selection on load (e.g. ?lang=en)
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'sv') return urlLang;
+    return 'sv';
+  });
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const savedTheme = localStorage.getItem('cv-theme') as 'dark' | 'light' | null;
     if (savedTheme) return savedTheme;
@@ -35,6 +41,16 @@ function App() {
   useEffect(() => {
     track('view_tab', { tab });
   }, [tab]);
+
+  // Sync URL query parameters with the language state
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('lang') !== lang) {
+      params.set('lang', lang);
+      const newUrl = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, [lang]);
 
   // Track language changes (excluding initial render)
   const isFirstLangRef = useRef(true);
