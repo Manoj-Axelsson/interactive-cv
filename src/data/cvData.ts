@@ -6,17 +6,17 @@ export const cvData: { sv: CVData; en: CVData } = {
     tagline: "",
     heroTitle: "Utvecklar Bättre System",
     heroSubtitle: "Produktionsteknik • Lean • Six Sigma • Modern Programvaruutveckling",
-    profile: "Jag hjälper organisationer att förbättra processer, minska komplexitet och bygga hållbara system genom att kombinera produktionsteknik, Lean-metodik, Six Sigma-problemlösning och medveten programvaruutveckling.\n\nGenom min bakgrund inom både industriell produktion och modern systemutveckling fokuserar jag på hur system hänger ihop. Det handlar inte om att titta på källkoden som ett isolerat konstverk, utan som en del av en större maskin – där kartläggning, rotorsaksanalys och ständiga förbättringar skapar verkligt värde.",
+    profile: "Jag hjälper organisationer att förbättra processer, minska komplexitet och bygga hållbara system genom att kombinera produktionsteknik, Lean-metodik, Six Sigma-problemlösning och medveten programvaruutveckling.\n\nGenom min bakgrund inom både industriell produktion och modern systemutveckling fokuserar jag på hur system hänger ihop. Jag använder moderna AI-assisterade utvecklingsflöden för att accelerera och kvalitetssäkra arbetet, och applicerar Six Sigma-kvalitetsprinciper samt rotorsaksanalys direkt på programvarukvalitet, testbarhet och systemstabilitet.",
     coreCompetenciesTitle: "Kärnkompetenser",
     coreCompetencies: [
       "Fullstack-systemutveckling (React, Node.js, TypeScript)",
+      "AI-assisterad utveckling & agentiska arbetsflöden",
       "Datadriven processförbättring, Lean och Six Sigma (DMAIC)",
       "Statistisk dataanalys & affärsanalys (Excel, Minitab)",
       "Processkartläggning & digitalisering (Industri 4.0)",
       "Strategisk gästservice, CRM & kundrelationer",
-      "Operativt ledarskap & Change Management",
       "Kvalitetssäkring, standardisering & rotorsaksanalys",
-      "Systemarkitektur & modern versionshantering (Git)"
+      "Systemarkitektur, CI/CD-koncept & modern versionshantering (Git)"
     ],
     experienceTitle: "Yrkeserfarenhet",
     workExperience: [
@@ -40,10 +40,10 @@ export const cvData: { sv: CVData; en: CVData } = {
     otherCompetencies: [
       "Datadrivet förbättringsarbete",
       "Lean- och Six Sigma-metodik",
-      "Processanalys och kartläggning",
-      "Kvalitetssäkring",
+      "Kvalitetssäkring & systemövervakning (observability)",
+      "Modern infrastruktur (CI/CD, Docker, molndrift)",
       "Dokumentation och uppföljning",
-      "Grundorsaksanalys",
+      "Grundorsaksanalys (5 Varför, Ishikawa)",
       "Statistik och faktabaserat beslutsstöd"
     ],
     educationTitle: "Utbildning",
@@ -52,7 +52,7 @@ export const cvData: { sv: CVData; en: CVData } = {
         title: "Systemutvecklare Fullstack",
         provider: "Lexicon AB – Linköping (Node.js, React, TypeScript)",
         period: "2025 – 2026",
-        details: "Slutfört ett intensivt fullstack-program i modern webbutveckling (TypeScript, Next.js, Tailwind CSS, PostgreSQL) för att gå från att enbart analysera och förbättra processer till att också kunna utveckla de system och verktyg som stödjer dem.\nFörvärvat kompetens att tillämpa arkitekturprinciper (bl.a. Bulletproof React) med fokus på separation of concerns, testbarhet och långsiktig underhållbarhet.\nArbetat projektbaserat med Git för versionshantering och dokumentation (tydliga commit-meddelanden, branches och pull requests för spårbarhet och samarbete).",
+        details: "Slutfört ett intensivt fullstack-program i modern webbutveckling (TypeScript, Next.js, Tailwind CSS, PostgreSQL) för att gå från att enbart analysera och förbättra processer till att också kunna utveckla de system och verktyg som stödjer dem.\nFörvärvat kompetens att tillämpa arkitekturprinciper (bl.a. Bulletproof React) med fokus på separation of concerns, testbarhet och långsiktig underhållbarhet.\nTillämpat moderna utvecklingsmetoder inklusive AI-assisterad kodning, molnbaserad driftsättning och grundläggande CI/CD-flöden.\nArbetat projektbaserat med Git för versionshantering och dokumentation (tydliga commit-meddelanden, branches och pull requests för spårbarhet och samarbete).",
         documentUrl: "/documents/lexicon-systemutveckling.pdf"
       },
       {
@@ -181,17 +181,17 @@ export const cvData: { sv: CVData; en: CVData } = {
     tagline: "",
     heroTitle: "Engineering Better Systems",
     heroSubtitle: "Production Engineering • Lean • Six Sigma • Modern Software Development",
-    profile: "I help organizations improve processes, reduce complexity and build sustainable systems by combining production engineering, Lean methodology, Six Sigma problem-solving and modern software development.\n\nBy combining my background in both industrial manufacturing and software architecture, I focus on how components interact. It is not about looking at code in isolation, but seeing it as part of a larger production machine – where documentation, root cause analysis, and continuous improvement are the primary drivers of real-world value.",
+    profile: "I help organizations improve processes, reduce complexity and build sustainable systems by combining production engineering, Lean methodology, Six Sigma problem-solving and modern software development.\n\nBy combining my background in both industrial manufacturing and software architecture, I focus on how components interact. I leverage modern AI-assisted development workflows to build testable, maintainable systems, applying Six Sigma quality principles and root cause analysis directly to software quality, testability, and operational stability.",
     coreCompetenciesTitle: "Core Competencies",
     coreCompetencies: [
       "Fullstack Software Development (React, Node.js, TypeScript)",
+      "AI-Assisted Development & Agentic Workflows",
       "Data-Driven Process Improvement, Lean and Six Sigma (DMAIC)",
       "Statistical Data Analysis & Business Intelligence (Excel, Minitab)",
       "Process Mapping & Digitalization (Industry 4.0)",
       "Strategic Guest Relations, CRM & Client Care",
-      "Operational Leadership & Change Management",
       "Quality Assurance, Standardization & Root Cause Analysis",
-      "System Architecture & Modern Version Control (Git)"
+      "System Architecture, CI/CD Concepts & Modern Version Control (Git)"
     ],
     experienceTitle: "Professional Experience",
     workExperience: [
@@ -214,11 +214,11 @@ export const cvData: { sv: CVData; en: CVData } = {
     otherCompetenciesTitle: "Additional Expertise",
     otherCompetencies: [
       "Data-driven Improvement",
-      "Lean and Six Sigma Methodology",
-      "Process Analysis & Mapping",
-      "Quality Assurance",
+      "Lean and Sigma Methodology",
+      "Quality Assurance & System Observability",
+      "Modern Infrastructure (CI/CD, Docker, Cloud Platforms)",
       "Documentation & Follow-up",
-      "Root Cause Analysis",
+      "Root Cause Analysis (5 Whys, Ishikawa)",
       "Statistics & Fact-based Decision Support"
     ],
     educationTitle: "Education",
@@ -227,7 +227,7 @@ export const cvData: { sv: CVData; en: CVData } = {
         title: "Fullstack Software Developer",
         provider: "Lexicon AB – Linköping (Node.js, React, TypeScript)",
         period: "2025 – 2026",
-        details: "Completed an intensive Fullstack program in modern web development (TypeScript, Next.js, Tailwind CSS, PostgreSQL), bridging process analysis with the ability to build custom systems that support operations.\nAcquired competence in applying software architecture principles (e.g., Bulletproof React) focusing on separation of concerns, testability, and long-term maintainability.\nPracticed project-based development with Git for version control and documentation (clean commit history, branch management, and pull requests for collaboration).",
+        details: "Completed an intensive Fullstack program in modern web development (TypeScript, Next.js, Tailwind CSS, PostgreSQL), bridging process analysis with the ability to build custom systems that support operations.\nAcquired competence in applying software architecture principles (e.g., Bulletproof React) focusing on separation of concerns, testability, and long-term maintainability.\nApplied modern development practices including AI-assisted coding, cloud deployment, and basic CI/CD concepts.\nPracticed project-based development with Git for version control and documentation (clean commit history, branch management, and pull requests for collaboration).",
         documentUrl: "/documents/lexicon-systemutveckling.pdf"
       },
       {
