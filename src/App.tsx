@@ -1,15 +1,13 @@
-import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { cvData } from './data/cvData';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { inject, track } from '@vercel/analytics';
-
-// Lazy load page-level tab components for code splitting (increases Core Web Vitals score)
-const Home = lazy(() => import('./pages/Home'));
-const Experience = lazy(() => import('./pages/Experience'));
-const Contact = lazy(() => import('./pages/Contact'));
-const Recommendations = lazy(() => import('./pages/Recommendations'));
-const BehindTheCode = lazy(() => import('./pages/BehindTheCode'));
+import Home from './pages/Home';
+import Experience from './pages/Experience';
+import Contact from './pages/Contact';
+import Recommendations from './pages/Recommendations';
+import BehindTheCode from './pages/BehindTheCode';
 
 // Initialize Vercel Web Analytics
 inject();
@@ -130,17 +128,23 @@ function App() {
         @media print {
           .tab-section {
             display: block !important;
-            page-break-after: always;
+            width: 100% !important;
           }
           .tab-section.inactive-tab {
             display: block !important;
+          }
+          /* Force clean page breaks at the start of major sections */
+          .tab-section:nth-of-type(2), /* Experience */
+          .tab-section:nth-of-type(3)  /* Recommendations */ {
+            page-break-before: always;
           }
           /* Hide 'Behind the Code' tab from printed CV as it is personal */
           .tab-section:nth-of-type(4) {
             display: none !important;
           }
-          .tab-section:last-child {
-            page-break-after: avoid;
+          /* Let Contact flow naturally */
+          .tab-section:nth-of-type(5) {
+            page-break-before: auto;
           }
           /* Print Stylesheet for Elegant PDF Generation */
           body {
@@ -150,7 +154,15 @@ function App() {
             line-height: 1.5 !important;
           }
           .app-container {
+            display: block !important;
+            min-height: auto !important;
+            height: auto !important;
             max-width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+          main.content-area {
+            display: block !important;
             padding: 0 !important;
             margin: 0 !important;
           }

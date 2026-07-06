@@ -158,8 +158,8 @@ export const Timeline: React.FC<TimelineProps> = ({
       <div className="timeline-path" id="timeline-items" aria-live="polite">
         {filteredItems.map((item) => {
           const isExpanded = expandedItems[item.id] !== false; // expanded by default for readability, or collapsed?
-          // Suppress details completely in the "Visa Alla / Show All" view to prevent cognitive overload
-          const hasDetails = filter !== 'all' && item.content && item.content.length > 0;
+          const hasDetails = item.content && item.content.length > 0;
+          const isHeaderClickable = filter !== 'all' && hasDetails;
 
           return (
             <div key={item.id} className="timeline-item fade-in">
@@ -174,17 +174,17 @@ export const Timeline: React.FC<TimelineProps> = ({
               <div className="timeline-card">
                 <div 
                   className="timeline-card-header" 
-                  onClick={() => hasDetails && toggleExpand(item.id)}
+                  onClick={() => isHeaderClickable && toggleExpand(item.id)}
                   onKeyDown={(e) => {
-                    if (hasDetails && (e.key === 'Enter' || e.key === ' ')) {
+                    if (isHeaderClickable && (e.key === 'Enter' || e.key === ' ')) {
                       e.preventDefault();
                       toggleExpand(item.id);
                     }
                   }}
-                  style={{ cursor: hasDetails ? 'pointer' : 'default' }}
-                  tabIndex={hasDetails ? 0 : -1}
-                  role={hasDetails ? 'button' : undefined}
-                  aria-expanded={hasDetails ? isExpanded : undefined}
+                  style={{ cursor: isHeaderClickable ? 'pointer' : 'default' }}
+                  tabIndex={isHeaderClickable ? 0 : -1}
+                  role={isHeaderClickable ? 'button' : undefined}
+                  aria-expanded={isHeaderClickable ? isExpanded : undefined}
                   aria-controls={hasDetails ? `timeline-body-${item.id}` : undefined}
                 >
                   <div className="title-section">
@@ -192,7 +192,7 @@ export const Timeline: React.FC<TimelineProps> = ({
                     <h3 className="timeline-item-title" id={`timeline-title-${item.id}`}>{item.title}</h3>
                     <h4 className="timeline-item-subtitle">{item.subtitle}</h4>
                   </div>
-                  {hasDetails && (
+                  {isHeaderClickable && (
                     <button 
                       className="expand-toggle-btn" 
                       aria-label={isExpanded ? (lang === 'sv' ? 'Dölj detaljer' : 'Hide details') : (lang === 'sv' ? 'Visa detaljer' : 'Show details')}
@@ -204,8 +204,13 @@ export const Timeline: React.FC<TimelineProps> = ({
                 </div>
 
                 {/* Details Section */}
-                {hasDetails && isExpanded && (
-                  <div className="timeline-card-body" id={`timeline-body-${item.id}`} role="region" aria-labelledby={`timeline-title-${item.id}`}>
+                {hasDetails && (
+                  <div 
+                    className={`timeline-card-body ${filter === 'all' ? 'print-only-details' : (isExpanded ? 'details-visible' : 'details-hidden')}`}
+                    id={`timeline-body-${item.id}`} 
+                    role="region" 
+                    aria-labelledby={`timeline-title-${item.id}`}
+                  >
                     {item.content.map((point, pIndex) => (
                       <p key={pIndex} className="timeline-text-point">
                         {(item.content.length > 1 || (item.type === 'work' && item.id !== 'leadership')) && !(pIndex === 0 && point.trim().endsWith(':')) ? (
@@ -481,6 +486,34 @@ export const Timeline: React.FC<TimelineProps> = ({
           border-top: 1px dashed var(--border-color);
           margin-top: -0.2rem;
           padding-top: 1rem;
+        }
+
+        .timeline-card-body.details-hidden {
+          display: none;
+        }
+        .timeline-card-body.details-visible {
+          display: block;
+        }
+        .timeline-card-body.print-only-details {
+          display: none;
+        }
+
+        @media print {
+          .timeline-card-body,
+          .timeline-card-body.details-hidden,
+          .timeline-card-body.details-visible,
+          .timeline-card-body.print-only-details {
+            display: block !important;
+            padding: 0.5rem 0 0 0 !important;
+            border-top: none !important;
+            margin-top: 0.5rem !important;
+          }
+          .expand-toggle-btn {
+            display: none !important;
+          }
+          .btn-document {
+            display: none !important;
+          }
         }
 
         @media (min-width: 768px) {
