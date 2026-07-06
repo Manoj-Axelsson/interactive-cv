@@ -142,6 +142,12 @@ function App() {
         }
 
         @media print {
+          * {
+            animation: none !important;
+            transition: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+          }
           .tab-section {
             display: block !important;
             width: 100% !important;
