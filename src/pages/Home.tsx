@@ -107,7 +107,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           {/* Print / Download Trigger */}
           <div className="download-action">
             <a
-              href="/documents/Manoj_John_Axelsson_CV.pdf"
+              href={lang === 'en' ? "/documents/Manoj_John_Axelsson_CV_EN.pdf" : "/documents/Manoj_John_Axelsson_CV.pdf"}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

@@ -28,8 +28,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                                               }) => {
   const handleDownloadPDF = () => {
     const link = document.createElement('a');
-    link.href = '/documents/Manoj_John_Axelsson_CV.pdf';
-    link.download = 'Manoj_John_Axelsson_CV.pdf';
+    const pdfFile = lang === 'en' ? 'Manoj_John_Axelsson_CV_EN.pdf' : 'Manoj_John_Axelsson_CV.pdf';
+    link.href = `/documents/${pdfFile}`;
+    link.download = pdfFile;
     link.click();
   };
 
