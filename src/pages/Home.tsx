@@ -1,7 +1,7 @@
 import React from 'react';
 import type { CVData } from '../types/cv';
 import SkillsGrid from '../components/SkillsGrid';
-import { Award, Code, Globe, FileDown, ExternalLink } from 'lucide-react';
+import { Award, Code, Globe, ExternalLink } from 'lucide-react';
 import { track } from '@vercel/analytics';
 
 interface HomeProps {

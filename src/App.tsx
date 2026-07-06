@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { cvData } from './data/cvData';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
