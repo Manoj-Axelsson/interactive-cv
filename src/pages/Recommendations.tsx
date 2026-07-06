@@ -424,6 +424,20 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
         )}
       </div>
 
+      {/* Print-only layout: prints all recommendations as a list instead of a carousel */}
+      <div className="print-recommendations-list">
+        {filteredRecommendations.map((item, idx) => (
+          <div key={idx} className="print-recommendation-item">
+            <blockquote className="print-testimonial-text">
+              ”{item.text}”
+            </blockquote>
+            <div className="print-testimonial-author">
+              <strong>{item.name}</strong> — {item.role} ({item.relation})
+            </div>
+          </div>
+        ))}
+      </div>
+
       {filteredRecommendations.length === 0 && (
         <div className="no-recommendations">
           {lang === 'sv' 
@@ -780,14 +794,45 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
           }
         }
 
-        .recommendations-grid {
+        .print-recommendations-list {
           display: none;
         }
 
-        @media (min-width: 768px) {
-          .recommendations-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+        @media print {
+          #recommendations-display,
+          .recommendation-filters,
+          .submission-section {
+            display: none !important;
+          }
+          .print-recommendations-list {
+            display: flex !important;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            width: 100%;
+          }
+          .print-recommendation-item {
+            border-bottom: 1px dashed #ccc !important;
+            padding-bottom: 1.2rem;
+            page-break-inside: avoid;
+          }
+          .print-recommendation-item:last-child {
+            border-bottom: none !important;
+          }
+          .print-testimonial-text {
+            font-style: italic;
+            font-size: 10pt !important;
+            line-height: 1.4 !important;
+            color: #000 !important;
+            margin: 0 0 0.5rem 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+          }
+          .print-testimonial-author {
+            font-size: 9pt !important;
+            color: #333 !important;
           }
         }
 

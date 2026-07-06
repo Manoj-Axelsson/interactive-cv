@@ -97,21 +97,21 @@ function App() {
             <span style={{ fontSize: '1.25rem', fontFamily: 'EB Garamond, serif', letterSpacing: '0.05em' }}>Laddar... / Loading...</span>
           </div>
         }>
-          {tab === 'about' && (
+          <div className={`tab-section ${tab === 'about' ? 'active-tab' : 'inactive-tab'}`}>
             <Home data={currentCV} lang={lang} />
-          )}
-          {tab === 'experience' && (
+          </div>
+          <div className={`tab-section ${tab === 'experience' ? 'active-tab' : 'inactive-tab'}`}>
             <Experience data={currentCV} lang={lang} />
-          )}
-          {tab === 'recommendations' && (
+          </div>
+          <div className={`tab-section ${tab === 'recommendations' ? 'active-tab' : 'inactive-tab'}`}>
             <Recommendations data={currentCV} lang={lang} />
-          )}
-          {tab === 'behind-the-code' && (
+          </div>
+          <div className={`tab-section ${tab === 'behind-the-code' ? 'active-tab' : 'inactive-tab'}`}>
             <BehindTheCode data={currentCV} lang={lang} />
-          )}
-          {tab === 'contact' && (
+          </div>
+          <div className={`tab-section ${tab === 'contact' ? 'active-tab' : 'inactive-tab'}`}>
             <Contact data={currentCV} lang={lang} />
-          )}
+          </div>
         </Suspense>
       </main>
 
@@ -120,7 +120,28 @@ function App() {
 
       {/* Print Styles overrides */}
       <style>{`
+        .tab-section.inactive-tab {
+          display: none;
+        }
+        .tab-section.active-tab {
+          display: block;
+        }
+
         @media print {
+          .tab-section {
+            display: block !important;
+            page-break-after: always;
+          }
+          .tab-section.inactive-tab {
+            display: block !important;
+          }
+          /* Hide 'Behind the Code' tab from printed CV as it is personal */
+          .tab-section:nth-of-type(4) {
+            display: none !important;
+          }
+          .tab-section:last-child {
+            page-break-after: avoid;
+          }
           /* Print Stylesheet for Elegant PDF Generation */
           body {
             background-color: #fff !important;
