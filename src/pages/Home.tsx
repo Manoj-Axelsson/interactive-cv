@@ -104,19 +104,6 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
             </div>
           </div>
 
-          {/* Print / Download Trigger */}
-          <div className="download-action">
-            <a
-              href={lang === 'en' ? "/documents/Manoj_John_Axelsson_CV_EN.pdf" : "/documents/Manoj_John_Axelsson_CV.pdf"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-              onClick={() => track('download_cv', { language: lang })}
-            >
-              <FileDown size={18} />
-              {data.pdfDownloadText}
-            </a>
-          </div>
         </section>
 
         <hr className="dossier-divider" />
