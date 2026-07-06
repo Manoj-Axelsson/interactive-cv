@@ -163,11 +163,14 @@ function App() {
             page-break-before: auto;
           }
           /* Print Stylesheet for Elegant PDF Generation */
-          body {
+          html, body, #root {
             background-color: #fff !important;
             color: #000 !important;
             font-size: 11pt !important;
             line-height: 1.5 !important;
+            overflow: visible !important;
+            height: auto !important;
+            min-height: auto !important;
           }
           .app-container {
             display: block !important;
@@ -176,11 +179,18 @@ function App() {
             max-width: 100% !important;
             padding: 0 !important;
             margin: 0 !important;
+            overflow: visible !important;
           }
           main.content-area {
             display: block !important;
             padding: 0 !important;
             margin: 0 !important;
+            overflow: visible !important;
+            height: auto !important;
+          }
+          .tab-section {
+            overflow: visible !important;
+            height: auto !important;
           }
           .navbar-header,
           .timeline-filters,
