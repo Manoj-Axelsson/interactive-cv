@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { CVData, RecommendationItem } from '../types/cv';
-import { MessageSquare, Send, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MessageSquare, Send, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, LayoutGrid, Layers, Sliders } from 'lucide-react';
 
 interface RecommendationsProps {
   data: CVData;
@@ -261,6 +261,35 @@ const RevolvingDoor3D: React.FC<{ items: RecommendationItem[]; lang: 'sv' | 'en'
   );
 };
 
+const FloatingBoard: React.FC<{ items: RecommendationItem[]; lang: 'sv' | 'en' }> = ({ items, lang }) => {
+  if (items.length === 0) return null;
+
+  return (
+    <div className="floating-board-grid">
+      {items.map((item, idx) => {
+        // Generate stable visual variance based on the item index
+        const rotateDeg = ((idx % 3) - 1) * 1.5 + (idx % 2 === 0 ? 0.3 : -0.3);
+        const floatDuration = 6 + (idx % 4); // 6s to 9s
+        const floatDelay = -1 * (idx % 5); // -0s to -4s
+        
+        return (
+          <div 
+            key={idx} 
+            className="floating-card-wrapper"
+            style={{
+              '--float-duration': `${floatDuration}s`,
+              '--float-delay': `${floatDelay}s`,
+              '--rotate-angle': `${rotateDeg}deg`
+            } as React.CSSProperties}
+          >
+            <TestimonialCard item={item} lang={lang} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 const CATEGORIES = {
   sv: [
     { id: 'all', label: 'Alla' },
@@ -280,6 +309,16 @@ const CATEGORIES = {
 
 export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [viewMode, setViewMode] = useState<'floating' | 'revolving' | 'carousel'>(() => {
+    const saved = localStorage.getItem('recommendations-view-mode') as 'floating' | 'revolving' | 'carousel' | null;
+    if (saved === 'floating' || saved === 'revolving' || saved === 'carousel') return saved;
+    return 'floating';
+  });
+
+  const handleViewModeChange = (mode: 'floating' | 'revolving' | 'carousel') => {
+    setViewMode(mode);
+    localStorage.setItem('recommendations-view-mode', mode);
+  };
 
   const filteredRecommendations = (data.recommendations || []).filter(item => {
     if (selectedCategory === 'all') return true;
@@ -415,12 +454,48 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
         ))}
       </div>
 
-      {/* Carousel or 3D Revolving Door */}
+      {/* View Mode Selector */}
+      <div className="view-mode-selector-container">
+        <span className="view-mode-label">{lang === 'sv' ? 'Visning:' : 'View:'}</span>
+        <button
+          type="button"
+          className={`view-mode-btn ${viewMode === 'floating' ? 'active' : ''}`}
+          onClick={() => handleViewModeChange('floating')}
+          title={lang === 'sv' ? 'Flytande kort' : 'Floating Cards'}
+        >
+          <LayoutGrid size={16} />
+          <span>{lang === 'sv' ? 'Flytande' : 'Floating'}</span>
+        </button>
+        <button
+          type="button"
+          className={`view-mode-btn ${viewMode === 'revolving' ? 'active' : ''}`}
+          onClick={() => handleViewModeChange('revolving')}
+          title={lang === 'sv' ? '3D Karusell' : '3D Coverflow'}
+        >
+          <Layers size={16} />
+          <span>{lang === 'sv' ? '3D Karusell' : '3D Coverflow'}</span>
+        </button>
+        <button
+          type="button"
+          className={`view-mode-btn ${viewMode === 'carousel' ? 'active' : ''}`}
+          onClick={() => handleViewModeChange('carousel')}
+          title={lang === 'sv' ? 'Standard Karusell' : 'Standard Carousel'}
+        >
+          <Sliders size={16} />
+          <span>{lang === 'sv' ? 'Karusell' : 'Carousel'}</span>
+        </button>
+      </div>
+
+      {/* Carousel, 3D Revolving Door, or Floating Board */}
       <div id="recommendations-display" aria-live="polite" style={{ width: '100%' }}>
-        {selectedCategory === 'all' ? (
-          <StandardCarousel items={filteredRecommendations} lang={lang} />
-        ) : (
+        {viewMode === 'floating' && (
+          <FloatingBoard items={filteredRecommendations} lang={lang} />
+        )}
+        {viewMode === 'revolving' && (
           <RevolvingDoor3D items={filteredRecommendations} lang={lang} />
+        )}
+        {viewMode === 'carousel' && (
+          <StandardCarousel items={filteredRecommendations} lang={lang} />
         )}
       </div>
 
@@ -586,14 +661,112 @@ export const Recommendations: React.FC<RecommendationsProps> = ({ data, lang }) 
         )}
       </section>
 
-       <style>{`
-        .recommendation-filters {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-          margin-bottom: 2rem;
-          justify-content: flex-start;
-        }
+        <style>{`
+         .recommendation-filters {
+           display: flex;
+           flex-wrap: wrap;
+           gap: 0.5rem;
+           margin-bottom: 2rem;
+           justify-content: flex-start;
+         }
+
+         .view-mode-selector-container {
+           display: flex;
+           justify-content: flex-end;
+           align-items: center;
+           gap: 0.5rem;
+           margin-bottom: 2.5rem;
+           margin-top: -1rem;
+           flex-wrap: wrap;
+         }
+
+         .view-mode-label {
+           font-size: 0.85rem;
+           text-transform: uppercase;
+           letter-spacing: 0.05em;
+           color: var(--text-secondary);
+           margin-right: 0.5rem;
+           font-weight: 600;
+         }
+
+         .view-mode-btn {
+           background-color: var(--highlight-color);
+           border: 1px solid var(--border-color);
+           color: var(--text-secondary);
+           padding: 0.4rem 0.8rem;
+           border-radius: 4px;
+           font-size: 0.9rem;
+           display: inline-flex;
+           align-items: center;
+           gap: 0.4rem;
+           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+         }
+
+         .view-mode-btn:hover {
+           color: var(--accent-gold);
+           border-color: var(--accent-gold);
+           background-color: var(--accent-gold-muted);
+         }
+
+         .view-mode-btn.active {
+           background-color: var(--accent-gold-muted);
+           border-color: var(--accent-gold);
+           color: var(--accent-gold);
+           font-weight: 600;
+           box-shadow: 0 0 10px var(--accent-gold-muted);
+         }
+
+         @media (max-width: 600px) {
+           .view-mode-selector-container {
+             justify-content: flex-start;
+             margin-top: 0;
+             margin-bottom: 2rem;
+           }
+         }
+
+         /* Floating Board styles */
+         .floating-board-grid {
+           display: grid;
+           grid-template-columns: 1fr;
+           gap: 2rem;
+           width: 100%;
+           margin-bottom: 4rem;
+         }
+
+         @media (min-width: 768px) {
+           .floating-board-grid {
+             grid-template-columns: repeat(2, 1fr);
+           }
+         }
+
+         .floating-card-wrapper {
+           display: flex;
+           width: 100%;
+           transform: rotate(var(--rotate-angle, 0deg));
+           animation: float-slow var(--float-duration, 8s) ease-in-out var(--float-delay, 0s) infinite alternate;
+           transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, z-index 0.4s ease;
+           z-index: 2;
+         }
+
+         .floating-card-wrapper:hover {
+           animation-play-state: paused;
+           transform: scale(1.03) rotate(0deg) !important;
+           z-index: 10;
+         }
+
+         .floating-card-wrapper:hover .testimonial-card {
+           box-shadow: 0 15px 35px var(--shadow-color), 0 0 15px var(--accent-gold-muted);
+           border-color: var(--accent-gold-hover);
+         }
+
+         @keyframes float-slow {
+           0% {
+             transform: translateY(0) rotate(var(--rotate-angle, 0deg));
+           }
+           100% {
+             transform: translateY(-10px) rotate(calc(var(--rotate-angle, 0deg) * 0.7));
+           }
+         }
 
         .no-recommendations {
           text-align: center;
