@@ -349,7 +349,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
         .dossier-divider {
           border: 0;
           border-top: 1px dashed var(--border-color);
-          margin: 2rem 0;
+          margin: 1.75rem 0;
           opacity: 0.7;
         }
 
@@ -360,6 +360,7 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           color: var(--accent-gold);
+          margin-top: 0;
           margin-bottom: 1.5rem;
           border-left: 2px solid var(--accent-gold);
           padding-left: 0.8rem;
@@ -462,16 +463,6 @@ export const Home: React.FC<HomeProps> = ({ data, lang }) => {
           font-style: italic;
         }
 
-        .download-action {
-          display: flex;
-          justify-content: center;
-        }
-
-        @media (min-width: 600px) {
-          .download-action {
-            justify-content: flex-start;
-          }
-        }
 
         /* How I Work Section Styles */
         .dossier-intro {
