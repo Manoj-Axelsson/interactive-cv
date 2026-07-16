@@ -157,6 +157,17 @@ export const cvData: { sv: CVData; en: CVData } = {
         date: "2026",
         isLinkedInVerified: true,
         linkedinUrl: "https://www.linkedin.com/in/manoj-axelsson/details/recommendations/"
+      },
+      {
+        name: "Justine Wolf",
+        role: "Koordinator",
+        relation: "Studerade tillsammans",
+        country: "Sverige",
+        text: "Manoj förkroppsligar uthållighet och gott humör i vardagen. Under våra studier uppskattade jag hans seriositet, vänlighet och beslutsamhet. Han är en trevlig person, alltid redo att gå framåt och stödja andra. Jag rekommenderar honom utan tvekan.",
+        originalText: "Manoj incarne la persévérance et la bonne humeur au quotidien. Au cours de nos études, j'ai pu apprécier son sérieux, sa gentillesse et sa détermination. C'est une personne agréable, toujours prête à avancer et à soutenir les autres. Je le recommande sans hésitation.",
+        nativeLanguage: "fr",
+        date: "2026",
+        isLinkedInVerified: false
       }
     ],
     contactTitle: "Kontaktuppgifter",
@@ -328,6 +339,17 @@ export const cvData: { sv: CVData; en: CVData } = {
         date: "2026",
         isLinkedInVerified: true,
         linkedinUrl: "https://www.linkedin.com/in/manoj-axelsson/details/recommendations/"
+      },
+      {
+        name: "Justine Wolf",
+        role: "Coordinator",
+        relation: "Studied together",
+        country: "Sweden",
+        text: "Manoj embodies perseverance and good humor in his daily life. During our studies, I was able to appreciate his professionalism, kindness, and determination. He is a pleasant person, always ready to move forward and support others. I recommend him without hesitation.",
+        originalText: "Manoj incarne la persévérance et la bonne humeur au quotidien. Au cours de nos études, j'ai pu apprécier son sérieux, sa gentillesse et sa détermination. C'est une personne agréable, toujours prête à avancer et à soutenir les autres. Je le recommande sans hésitation.",
+        nativeLanguage: "fr",
+        date: "2026",
+        isLinkedInVerified: false
       }
     ],
     contactTitle: "Contact Information",
