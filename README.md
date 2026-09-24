@@ -73,3 +73,10 @@ export default defineConfig([
 ])
 
 ```
+
+## Certificate documents
+
+- Certificate and diploma PDFs are stored under `public/documents/`.
+- Education entries in `src/data/cvData.ts` reference these files via the `documentUrl` property.
+- Certificates are opened directly in a new browser tab (`target="_blank"`) rather than embedded in an iframe.
+- This design decision intentionally avoids browser and privacy frame-embedding restrictions (such as in Zen Browser) and ensures direct document accessibility.
